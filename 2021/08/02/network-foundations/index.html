@@ -31,8 +31,14 @@
 <meta property="og:image" content="https://sylvesterdzimiri.com/images/lan.png">
 <meta property="og:image" content="https://sylvesterdzimiri.com/images/wan.png">
 <meta property="og:image" content="https://sylvesterdzimiri.com/images/osi-model.webp">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/arp-request.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/port-forwading.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/dns-example.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/dns-hierarchy.gif">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/dns-name.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/dns-records-types.png">
 <meta property="article:published_time" content="2021-08-02T16:44:40.000Z">
-<meta property="article:modified_time" content="2021-08-05T04:09:20.000Z">
+<meta property="article:modified_time" content="2021-08-05T18:29:50.950Z">
 <meta property="article:author" content="Sylvester Runesu Dzimiri">
 <meta property="article:tag" content="AWS">
 <meta property="article:tag" content="AWS SAA">
@@ -153,7 +159,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-a-computer-network"><span class="nav-number">1.</span> <span class="nav-text">What is a computer network?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Switch"><span class="nav-number">1.1.</span> <span class="nav-text">Switch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Router"><span class="nav-number">1.2.</span> <span class="nav-text">Router</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Types-of-computer-networks"><span class="nav-number">2.</span> <span class="nav-text">Types of computer networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-area-network-LAN"><span class="nav-number">2.1.</span> <span class="nav-text">Local area network (LAN)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wide-area-network-WAN"><span class="nav-number">2.2.</span> <span class="nav-text">Wide area network (WAN)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Client-Server-model"><span class="nav-number">3.</span> <span class="nav-text">Client-Server model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Peer-to-peer-model"><span class="nav-number">4.</span> <span class="nav-text">Peer-to-peer model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI-Model"><span class="nav-number">5.</span> <span class="nav-text">OSI Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text"></span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-a-computer-network"><span class="nav-number">1.</span> <span class="nav-text">What is a computer network?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Switch"><span class="nav-number">1.1.</span> <span class="nav-text">Switch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Router"><span class="nav-number">1.2.</span> <span class="nav-text">Router</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Types-of-computer-networks"><span class="nav-number">2.</span> <span class="nav-text">Types of computer networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-area-network-LAN"><span class="nav-number">2.1.</span> <span class="nav-text">Local area network (LAN)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wide-area-network-WAN"><span class="nav-number">2.2.</span> <span class="nav-text">Wide area network (WAN)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Client-Server-model"><span class="nav-number">3.</span> <span class="nav-text">Client-Server model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Peer-to-peer-model"><span class="nav-number">4.</span> <span class="nav-text">Peer-to-peer model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI-Model"><span class="nav-number">5.</span> <span class="nav-text">OSI Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Static-Routing"><span class="nav-number">6.</span> <span class="nav-text">Static Routing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-Routing"><span class="nav-number">7.</span> <span class="nav-text">Dynamic Routing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Address-Resolution-Protocol-ARP"><span class="nav-number">8.</span> <span class="nav-text">Address Resolution Protocol (ARP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Port-Forwading"><span class="nav-number">9.</span> <span class="nav-text">Port Forwading</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Port-Forwading-Example"><span class="nav-number">9.1.</span> <span class="nav-text">Port Forwading Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-Host-Configuration-Protocol"><span class="nav-number">10.</span> <span class="nav-text">Dynamic Host Configuration Protocol</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advantages-of-DHCP"><span class="nav-number">10.1.</span> <span class="nav-text">Advantages of DHCP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Domain-Name-System-DNS"><span class="nav-number">11.</span> <span class="nav-text">Domain Name System (DNS)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS-Hierarchy"><span class="nav-number">12.</span> <span class="nav-text">DNS Hierarchy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS-Record-Types"><span class="nav-number">13.</span> <span class="nav-text">DNS Record Types</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HOST"><span class="nav-number">13.1.</span> <span class="nav-text">HOST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CNAME"><span class="nav-number">13.2.</span> <span class="nav-text">CNAME</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MX"><span class="nav-number">13.3.</span> <span class="nav-text">MX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NS"><span class="nav-number">13.4.</span> <span class="nav-text">NS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SOA"><span class="nav-number">13.5.</span> <span class="nav-text">SOA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PTR"><span class="nav-number">13.6.</span> <span class="nav-text">PTR</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -275,7 +281,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-04 23:09:20" itemprop="dateModified" datetime="2021-08-04T23:09:20-05:00">2021-08-04</time>
+        <time title="Modified: 2021-08-05 13:29:50" itemprop="dateModified" datetime="2021-08-05T13:29:50-05:00">2021-08-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -302,14 +308,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>2.5k</span>
+      <span>12k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
+      <span>11 mins.</span>
     </span>
 </div>
 
@@ -349,7 +355,76 @@
 </ul>
 <h2 id="OSI-Model"><a href="#OSI-Model" class="headerlink" title="OSI Model"></a>OSI Model</h2><p>The OSI Model (Open Systems Interconnection Model) is a conceptual framework used to describe the functions of a networking system. Each layer serves the above it and depends on the layer below it</p>
 <p><img src="/images/osi-model.webp" alt="(Can write a description about the picture)"></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+<h2 id="Static-Routing"><a href="#Static-Routing" class="headerlink" title="Static Routing"></a>Static Routing</h2><p>In static routing, a network administator specifies the exact route the traffic will take. A treasure map often shows a very specific path to the treasure. Following the same exact path each time to get somewhere is a kind of static routing. This is like an end-to-end static route, where each node in the network has a static route to the next node in the path to the final destination.</p>
+<p>Static routing advantages:</p>
+<ul>
+<li>Maximum control: because static routes are manually added, they provide predictable route prioritization.</li>
+<li>Simple to configure on small networks </li>
+</ul>
+<p>Static routing disadvantages:</p>
+<ul>
+<li>It is difficult to manage at scale.</li>
+<li>Manual administration is slow and subject to errors.</li>
+<li>The network cannot spend to changing conditions easily.</li>
+</ul>
+<h2 id="Dynamic-Routing"><a href="#Dynamic-Routing" class="headerlink" title="Dynamic Routing"></a>Dynamic Routing</h2><p>In computer network, dynamic routing is automatic routing determined by the network devices themselves. In dynamic routing, the routers know what networks are directly connected to them. A major aspect of dynamic routing is that it enables the network to adapt to changing conditions, such as failed links, by adjusting routes as necessary.</p>
+<p>Dynamic routing advantages:</p>
+<ul>
+<li>Scales well as the network grows.</li>
+<li>Provides fewer opportunities for human error.</li>
+<li>Adapts to changing conditions.</li>
+</ul>
+<p>Dynamic routing disadvantages:</p>
+<ul>
+<li>Less control </li>
+<li>Emergent routing </li>
+</ul>
+<h2 id="Address-Resolution-Protocol-ARP"><a href="#Address-Resolution-Protocol-ARP" class="headerlink" title="Address Resolution Protocol (ARP)"></a>Address Resolution Protocol (ARP)</h2><p>Imagine that John lives in a new housing development where houses are built on only one street so far. He is new to the neighborhood and doesn’t know anyone yet. He goes for a walk and finds a book that is lying in the street. It says “property of Jane.” He would like to return the book to Jane, but he doesn’t know which house Jane lives in. How can he find out? One way is for John to write a note that says that he has Jane’s book and can deliver it. In the note, he provides his contact information, including the house that he lives in because everyone in the neighborhood is friendly. He then places copies of this note in everyone’s mailbox. When Jane reads the note, she contacts John and lets him know which house she lives in so that he can deliver the book to her. Now everyone in the neighborhood knows where John lives and John knows where Jane lives. This scenario is essentially what happens when a computer (John) tries to send an IP packet (the book) to another system (Jane). It is sending the packet on the same local network (the neighborhood) for the first time. It must map the IP address (the name Jane) to the hardware address (the house number). The protocol that governs this process for IPv4 is the ARP. </p>
+<p>ARP is part of the TCP/IP protocol suite. It is used to translate IP addresses to hardware addresses, also called MAC addresses. When a network node that runs TCP/IP must know which node on an Ethernet network uses a particular IPv4 address, it broadcasts an ARP request. The broadcast basically says: “Attention! Which node is using IP address xxx.xxx.xxx.xxx?”</p>
+<p>The node that owns the specific IPv4 address responds with its own MAC address. The node that sent the request then adds that MAC address to its own ARP table.</p>
+<p>For IPv6, the Neighbor Discovery Protocol (NDP) is used for address resolution. </p>
+<div class="note "><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Neighbor_Discovery_Protocol">Neighbor Discovery Protocol</a></p>
+</div>
+
+<p><img src="/images/arp-request.png" alt="(Can write a description about the picture)"></p>
+<h2 id="Port-Forwading"><a href="#Port-Forwading" class="headerlink" title="Port Forwading"></a>Port Forwading</h2><p>A port is a way to route traffic to a specific application on a host. This is a virtual point where the network connection start and end. Port forwarding is a function that a border router (or firewall) performs. Its purpose is to direct traffic that comes into a specific port on its public interface to an IP host in the private network. In this way, services in the private network become available to the public network. The publicly advertised port number can be mapped to a different port number on the private network host. </p>
+<h3 id="Port-Forwading-Example"><a href="#Port-Forwading-Example" class="headerlink" title="Port Forwading Example"></a>Port Forwading Example</h3><p>For example, a web server in the private network runs on an IP host with the private IP address 172.16.30.1 on TCP port 8080. Web clients in the internet should be able to access the web server by using a standard HTTP URL. To ensure that they can, the server is advertised to the internet as the public IP address of the router (54.151.109.145) that runs on port 80. Port forwarding that is configured on the router directs incoming traffic on its public interface on port 80. It directs the traffic to the web server (172.16.30.1) on port 8080. Return traffic from the server leaves the private network (through the router) with a source address and port number of the router (54.151.109.145:80). </p>
+<p><img src="/images/port-forwading.png" alt="(Can write a description about the picture)"></p>
+<h2 id="Dynamic-Host-Configuration-Protocol"><a href="#Dynamic-Host-Configuration-Protocol" class="headerlink" title="Dynamic Host Configuration Protocol"></a>Dynamic Host Configuration Protocol</h2><p>Before 1993, IPv4 addresses—including subnet masks, gateways, and other parameters—needed to be configured manually and individually by network administrators. As organization networks became larger, the risk of configuration errors increased, and this caused a heavy maintenance workload. A protocol was needed urgently to automate the IP configuration process in large networks. To solve those issues, a new protocol was released: DHCP.</p>
+<p>DHCP enables automatic IP address configuration for almost all devices by exchanging messages between devices and a DHCP server. DHCP can also automatically configure other parameters such as a default gateway address, a DNS server IP address, or a subnet mask.</p>
+<p>DHCP uses lease time to dynamically assign IP addresses. When an IP address is no longer used by a device, it goes back to the pool of IP addresses. The IP address can then be assigned to another device, if needed. This process enables you to connect more devices to the network than the total number of IP addresses that are available in the DHCP server.</p>
+<h3 id="Advantages-of-DHCP"><a href="#Advantages-of-DHCP" class="headerlink" title="Advantages of DHCP"></a>Advantages of DHCP</h3><ul>
+<li>In addition to providing the first fully automated solution to assign IP addresses, DHCP offers increased flexibility and scaling.</li>
+<li>Only the devices that are currently in use get an IP address, which enables you to have more devices than IP addresses on a network.</li>
+<li>The modifications of the parameters that are made on a DHCP server are centralized in the DHCP server. The modifications are then automatically propagated to the devices when they are rebooted.</li>
+</ul>
+<h2 id="Domain-Name-System-DNS"><a href="#Domain-Name-System-DNS" class="headerlink" title="Domain Name System (DNS)"></a>Domain Name System (DNS)</h2><p>DNS is a distributed services that’s used to translate the domain names of devices that are connected to the internet or a private network into IP addresses. A domain name is easier to remember than a numerical IP address of a host. It is possible to attach other information to a domain name, in addition to an IP address. For example, different records types can be used to add more security for data transmission, to avoid spam, or to associate email addresses with phone numbers.</p>
+<p><img src="/images/dns-example.png" alt="(Can write a description about the picture)"></p>
+<h2 id="DNS-Hierarchy"><a href="#DNS-Hierarchy" class="headerlink" title="DNS Hierarchy"></a>DNS Hierarchy</h2><p>The DNS hierarchy is comprised of the following elements:</p>
+<ul>
+<li>Root Level</li>
+<li>Top Level Domains</li>
+<li>Second Level Domains</li>
+<li>Sub-Domain</li>
+<li>Host</li>
+</ul>
+<p><img src="/images/dns-hierarchy.gif" alt="(Can write a description about the picture)"></p>
+<p>A domain name is read left to right, or from subdomain to root. In the image below, the top level domain com is then preceded by the second-level domain, or domain name, example. This is then preceded by the subdomain en. </p>
+<p><img src="/images/dns-name.png" alt="(Can write a description about the picture)"></p>
+<h2 id="DNS-Record-Types"><a href="#DNS-Record-Types" class="headerlink" title="DNS Record Types"></a>DNS Record Types</h2><h3 id="HOST"><a href="#HOST" class="headerlink" title="HOST"></a>HOST</h3><p>Host records correspond too the A and AAAA records. These RRs store IP addresses for DNS names. The A record is used to map a domain name to an IPv4 address. The AAAA record is an extension of the A record, which enables mapping a domain name to an IPv6 address. For example, when a client sends a request asking for the IP address of a domain name, the request goes to its DNS server. The server then looks for an A (or AAAA) record that corresponds to that domain name. After, the server returns the IP address to the client.</p>
+<h3 id="CNAME"><a href="#CNAME" class="headerlink" title="CNAME"></a>CNAME</h3><p>This record is called canonical name (CNAME). It’s used to map a domain name to another domain name. The first domain name is called the alias and the other domain name is referred to as the canonical name. CNAME records always point to the domain namen and never point to IP addresses. This record can be useful if several services run at the same time on several ports, but use only one IP address. </p>
+<h3 id="MX"><a href="#MX" class="headerlink" title="MX"></a>MX</h3><p>The MX record stands for Mail Exchange. It identifies mail servers, which are also known as message transfer agents, for a given DNS name. If an MX record is present for the DNS name example.com, at least one mail server must process and accept email messages for that domain. When a client wants to send an email message to a domain name, a mail server sends a query to the DNS server of the target domain name. The mail server asks for the MX record. The DNS server will send back the MX record as a response so that the client knows what mail server to use. When the mail host is selected, the client mail server will initiate a Simple Mail Transfer Protocol (SMTP) connection, beginning with the mail host that has the lowest priority. A single domain can have several configured MX records. To choose between the different mail servers of the MX records, a priority feature is specified, as shown in the following example. A sending agent always starts using the host that has the lowest priority value before it chooses another host, which has the second-lowest value. You can learn more about priorities in the RFC 5321, which is the standard that describes SMTP.</p>
+<h3 id="NS"><a href="#NS" class="headerlink" title="NS"></a>NS</h3><p>The NS record, which stands for Name Server record, enables the creation of a zone delegation. For a given domain, the NS record directs to another authoritative name server for the domain name.</p>
+<p>Domain names often, if not always, have several configured NS records. If one DNS server goes down, another one can take control and give access to the domain name.</p>
+<p>When a DNS record is resolved by a DNS server, the DNS server reaches one of the associated name servers. It keeps the results in its cache for a given period of time, which is defined by the TTL parameter. If a DNS record is changed and the TTL hasn’t expired, the DNS server doesn’t know about those changes before the cache expires. To correctly propagate the latest DNS record, the TTL must expire, or another name server must be contacted.</p>
+<h3 id="SOA"><a href="#SOA" class="headerlink" title="SOA"></a>SOA</h3><p>The SOA record stands for Start of Authority. In DNS, each zone has only one SOA record. In addition to the usual record fields, the SOA record provides specific information that will be detailed later.</p>
+<p>First, the SOA record contains information that’s related to the primary name server of the zone. This primary name server is the server with the highest authority for the zone and it has full rights to that zone (read, write, and copy).</p>
+<p>The SOA record also provides the email address of the network administrator who’s in charge of the domain name. </p>
+<p>Next in the SOA record, you will find the serial number of the zone. This serial number is incremented each time a modification is made to the zone. This serial number is used for zone copy. If a DNS server sees that two copies of the same zone have different serial numbers, it knows that the copy with the lowest number must be updated. </p>
+<p>Finally, a refresh time for the zone is present in the SOA record. This refresh time is used by secondary DNS servers to know when to check for updates. The refresh time can be changed, depending on how often a zone will be modified. The retry interval is used if a previous updated failed, and it specifies how long a secondary DNS server should wait before it retries updating the zone. Finally, the expire timer corresponds to the time that a secondary DNS server should consider that the zone is no longer available. By convention, the expire time should be larger than the sum of the refresh and retry intervals.</p>
+<h3 id="PTR"><a href="#PTR" class="headerlink" title="PTR"></a>PTR</h3><p>The PTR record, or Pointer record, provides a mapping between an IP address and a name. This record can be seen as the exact opposite of an A or AAAA record. This record means that given an IP address, the domain name that corresponds to that IP address can be looked up. This process is called reverse lookup and it will be discussed in more detail in another lesson. This system is useful for finding which devices correspond to IP addresses in a log file. </p>
+<p><img src="/images/dns-records-types.png" alt="(Can write a description about the picture)"></p>
+
     </div>
 
     
@@ -405,13 +480,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">9k</span>
+    <span title="Symbols count total">19k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">8 mins.</span>
+    <span title="Reading time total">17 mins.</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
