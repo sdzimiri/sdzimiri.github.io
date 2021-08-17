@@ -473,7 +473,7 @@ pre {
 }
 pre,
 code {
-  font-family: Times New Roman, consolas, Menlo, monospace, 'PingFang SC', 'Microsoft YaHei';
+  font-family: Avenir Next, consolas, Menlo, monospace, 'PingFang SC', 'Microsoft YaHei';
 }
 code {
   border-radius: 3px;
@@ -1199,7 +1199,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Avenir Next, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Saira, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
@@ -2833,7 +2833,7 @@ hr {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #790536;
+  background: #fff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
