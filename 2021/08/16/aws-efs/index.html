@@ -20,17 +20,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"sylvesterdzimiri.com","root":"/","images":"/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":120},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="IntroductionThe Amazon EFS and Amazon FSx services provide easily deployable file systems for use with Linux and Windows instances.">
+<meta name="description" content="IntroductionThe Amazon EFS and Amazon FSx services provide easily deployable file systems for use with Linux and Windows instances. Amazon EFSAmazon EFS is based on the Network File System (NFS) proto">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AWS Elastic File System">
 <meta property="og:url" content="https://sylvesterdzimiri.com/2021/08/16/aws-efs/index.html">
 <meta property="og:site_name" content="Sylvesters Blog">
-<meta property="og:description" content="IntroductionThe Amazon EFS and Amazon FSx services provide easily deployable file systems for use with Linux and Windows instances.">
+<meta property="og:description" content="IntroductionThe Amazon EFS and Amazon FSx services provide easily deployable file systems for use with Linux and Windows instances. Amazon EFSAmazon EFS is based on the Network File System (NFS) proto">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sylvesterdzimiri.com/images/efs.png">
 <meta property="og:image" content="https://sylvesterdzimiri.com/images/efs-2.png">
 <meta property="article:published_time" content="2021-08-17T01:25:58.000Z">
-<meta property="article:modified_time" content="2021-08-17T01:34:12.002Z">
+<meta property="article:modified_time" content="2021-08-17T02:16:27.000Z">
 <meta property="article:author" content="Sylvester Runesu Dzimiri">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://sylvesterdzimiri.com/images/efs.png">
@@ -265,7 +265,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-08-16 20:25:58 / Modified: 20:34:12" itemprop="dateCreated datePublished" datetime="2021-08-16T20:25:58-05:00">2021-08-16</time>
+      <time title="Created: 2021-08-16 20:25:58 / Modified: 21:16:27" itemprop="dateCreated datePublished" datetime="2021-08-16T20:25:58-05:00">2021-08-16</time>
     </span>
 
   
@@ -294,9 +294,9 @@
     
     <div class="post-body" itemprop="articleBody">
         <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>The Amazon EFS and Amazon FSx services provide easily deployable file systems for use with Linux and Windows instances.</p>
+<h2 id="Amazon-EFS"><a href="#Amazon-EFS" class="headerlink" title="Amazon EFS"></a>Amazon EFS</h2><p>Amazon EFS is based on the Network File System (NFS) protocol that Linux-based systems use. Amazon EFS provides a simple, serverless, set-and-forget, elastic file system that allows you to share file data without provisioning or managing storage. It can be used with AWS Cloud services and on-premises resources and is built to scale on demand to petabytes without disrupting applications. Using Amazon EFS, you can grow or shrink your file systems automatically as needed, eliminating the need to provision and manage capacity to accommodate growth.</p>
 <span id="more"></span>
 
-<h2 id="Amazon-EFS"><a href="#Amazon-EFS" class="headerlink" title="Amazon EFS"></a>Amazon EFS</h2><p>Amazon EFS is based on the Network File System (NFS) protocol that Linux-based systems use. Amazon EFS provides a simple, serverless, set-and-forget, elastic file system that allows you to share file data without provisioning or managing storage. It can be used with AWS Cloud services and on-premises resources and is built to scale on demand to petabytes without disrupting applications. Using Amazon EFS, you can grow or shrink your file systems automatically as needed, eliminating the need to provision and manage capacity to accommodate growth.</p>
 <h2 id="Amazon-EFS-storage-classes"><a href="#Amazon-EFS-storage-classes" class="headerlink" title="Amazon EFS storage classes"></a>Amazon EFS storage classes</h2><p>With Amazon EFS, you pay for only the storage that your file system uses, and there is no minimum fee or setup cost. Amazon EFS offers a range of storage classes designed for different use cases. These storage classes include the following:</p>
 <ul>
 <li><p><strong>Standard storage classes</strong>: EFS Standard and EFS Standard–Infrequent Access (Standard–IA) provide you with Multi-Availability Zone (Multi-AZ) resilience and the highest levels of durability and availability.</p>
