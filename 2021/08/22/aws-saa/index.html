@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/header.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/header.png">
+  <link rel="mask-icon" href="/images/header.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"sylvesterdzimiri.com","root":"/","images":"/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":120},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="SAA Exam DomainsThe Exam consists of following domains. Design Resilient Architectures Design a multi-tier architecture solution. Design highly available or&#x2F; fault-tolerant architectures. Design decou">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS SAA">
+<meta property="og:url" content="https://sylvesterdzimiri.com/2021/08/22/aws-saa/index.html">
+<meta property="og:site_name" content="Sylvesters Blog">
+<meta property="og:description" content="SAA Exam DomainsThe Exam consists of following domains. Design Resilient Architectures Design a multi-tier architecture solution. Design highly available or&#x2F; fault-tolerant architectures. Design decou">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/global-infastructure.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/gateway.jpeg">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/elb.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/application-lb.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/network-lb.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/alarm.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/logs.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/site-site.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/cloud-formation.png">
+<meta property="article:published_time" content="2021-08-22T17:37:33.000Z">
+<meta property="article:modified_time" content="2021-08-23T21:49:37.136Z">
+<meta property="article:author" content="Sylvester Runesu Dzimiri">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="AWS SAA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sylvesterdzimiri.com/images/global-infastructure.png">
+
+
+<link rel="canonical" href="https://sylvesterdzimiri.com/2021/08/22/aws-saa/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sylvesterdzimiri.com/2021/08/22/aws-saa/","path":"2021/08/22/aws-saa/","title":"AWS SAA"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>AWS SAA | Sylvesters Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Sylvesters Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SAA-Exam-Domains"><span class="nav-number">1.</span> <span class="nav-text">SAA Exam Domains</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Design-Resilient-Architectures"><span class="nav-number">1.1.</span> <span class="nav-text">Design Resilient Architectures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Design-High-Performing-Architectures"><span class="nav-number">1.2.</span> <span class="nav-text">Design High-Performing Architectures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Design-Secure-Applications-and-Architectures"><span class="nav-number">1.3.</span> <span class="nav-text">Design Secure Applications and Architectures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Design-Cost-Optimized-Architectures"><span class="nav-number">1.4.</span> <span class="nav-text">Design Cost-Optimized Architectures</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IAM-Identity-Access-Management"><span class="nav-number">2.</span> <span class="nav-text">IAM (Identity Access Management)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AWS-STS"><span class="nav-number">2.1.</span> <span class="nav-text">AWS STS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Federation-typically-AD"><span class="nav-number">2.2.</span> <span class="nav-text">Federation (typically AD):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Federation-with-Mobile-Apps"><span class="nav-number">2.3.</span> <span class="nav-text">Federation with Mobile Apps:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IAM-Best-Practices"><span class="nav-number">2.4.</span> <span class="nav-text">IAM Best Practices</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AWS-Global-Infrastructure-Overview"><span class="nav-number">3.</span> <span class="nav-text">AWS Global Infrastructure Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Amazon-Virtual-Private-Cloud-VPC"><span class="nav-number">4.</span> <span class="nav-text">Amazon Virtual Private Cloud (VPC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EC2-Elastic-Compute-Cloud"><span class="nav-number">5.</span> <span class="nav-text">EC2 (Elastic Compute Cloud)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Security-Groups"><span class="nav-number">6.</span> <span class="nav-text">Security Groups</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Instance-Metadata"><span class="nav-number">7.</span> <span class="nav-text">Instance Metadata</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Instance-Userdata"><span class="nav-number">8.</span> <span class="nav-text">Instance Userdata</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NAT-Instances"><span class="nav-number">9.</span> <span class="nav-text">NAT Instances</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NAT-Gateways"><span class="nav-number">10.</span> <span class="nav-text">NAT Gateways</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Direct-Connect"><span class="nav-number">11.</span> <span class="nav-text">Direct Connect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AWS-Global-Accelerator"><span class="nav-number">12.</span> <span class="nav-text">AWS Global Accelerator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Public-Private-and-Elastic-IP-addresses"><span class="nav-number">13.</span> <span class="nav-text">Public, Private and Elastic IP addresses.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EC2-Placement-Groups"><span class="nav-number">14.</span> <span class="nav-text">EC2 Placement Groups</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elastic-Load-Balancing-and-Auto-Scaling"><span class="nav-number">15.</span> <span class="nav-text">Elastic Load Balancing and Auto Scaling.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Application-Load-Balancer"><span class="nav-number">15.1.</span> <span class="nav-text">Application Load Balancer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Network-Load-Balancer"><span class="nav-number">15.2.</span> <span class="nav-text">Network Load Balancer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classic-Load-Balancer"><span class="nav-number">15.3.</span> <span class="nav-text">Classic Load Balancer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gateway-Load-Balancer"><span class="nav-number">15.4.</span> <span class="nav-text">Gateway Load Balancer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#How-a-Gateway-Load-Balancer-works"><span class="nav-number">15.4.1.</span> <span class="nav-text">How a Gateway Load Balancer works</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gateway-Load-Balancer-pricing"><span class="nav-number">15.5.</span> <span class="nav-text">Gateway Load Balancer pricing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Internet-Facing-vs-Internal"><span class="nav-number">16.</span> <span class="nav-text">Internet Facing vs Internal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Internet-Facing"><span class="nav-number">16.1.</span> <span class="nav-text">Internet Facing:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Internal-ELB"><span class="nav-number">16.2.</span> <span class="nav-text">Internal ELB:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elastic-Load-Balancing"><span class="nav-number">17.</span> <span class="nav-text">Elastic Load Balancing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ELB-Security-Groups"><span class="nav-number">18.</span> <span class="nav-text">ELB Security Groups</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ELB-Monitoring"><span class="nav-number">19.</span> <span class="nav-text">ELB Monitoring</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Access-Logs"><span class="nav-number">20.</span> <span class="nav-text">Access Logs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cloud-Watch"><span class="nav-number">21.</span> <span class="nav-text">Cloud Watch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Metrics"><span class="nav-number">21.1.</span> <span class="nav-text">Metrics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Alarms"><span class="nav-number">21.2.</span> <span class="nav-text">Alarms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logs"><span class="nav-number">21.3.</span> <span class="nav-text">Logs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AWS-Direct-Connect"><span class="nav-number">22.</span> <span class="nav-text">AWS Direct Connect</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AWS-Site-to-Site-VPN-over-AWS-Direct-Connect"><span class="nav-number">22.1.</span> <span class="nav-text">AWS Site-to-Site VPN over AWS Direct Connect</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AWS-Cloud-Formation"><span class="nav-number">23.</span> <span class="nav-text">AWS Cloud Formation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AWS-Cloud-Formation-Intrinsic-Functions"><span class="nav-number">24.</span> <span class="nav-text">AWS Cloud Formation (Intrinsic Functions)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intrinsic-Function-Ref"><span class="nav-number">24.1.</span> <span class="nav-text">Intrinsic Function - Ref</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intrinsic-Function-GetAtt"><span class="nav-number">24.2.</span> <span class="nav-text">Intrinsic Function - GetAtt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intrinsic-Function-FindInMap"><span class="nav-number">24.3.</span> <span class="nav-text">Intrinsic Function - FindInMap</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Sylvester Runesu Dzimiri"
+      src="/images/sylvester.png">
+  <p class="site-author-name" itemprop="name">Sylvester Runesu Dzimiri</p>
+  <div class="site-description" itemprop="description">If you cannot do great things, do small things in a great way.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sdzimiri" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sdzimiri" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sylvesterdzimiri7@gmail.com" title="E-Mail → mailto:sylvesterdzimiri7@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/_sylvesterdzimiri" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;_sylvesterdzimiri" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.linkedin.com/in/sylvester-dzimiri/" title="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;sylvester-dzimiri&#x2F;" rel="noopener" target="_blank">LinkedIn</a>
+        </li>
+    </ul>
+  </div>
+<div class="cc-license animated" itemprop="sponsor">
+<p><i> Ukakundikana nhasi, mangwana muka uzame zvakare! </i></p>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sylvesterdzimiri.com/2021/08/22/aws-saa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/sylvester.png">
+      <meta itemprop="name" content="Sylvester Runesu Dzimiri">
+      <meta itemprop="description" content="If you cannot do great things, do small things in a great way.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sylvesters Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AWS SAA
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-22 12:37:33" itemprop="dateCreated datePublished" datetime="2021-08-22T12:37:33-05:00">2021-08-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-23 16:49:37" itemprop="dateModified" datetime="2021-08-23T16:49:37-05:00">2021-08-23</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/aws-certification/" itemprop="url" rel="index"><span itemprop="name">AWS Certification</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/aws-certification/aws-saa/" itemprop="url" rel="index"><span itemprop="name">AWS SAA</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>22k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>20 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="SAA-Exam-Domains"><a href="#SAA-Exam-Domains" class="headerlink" title="SAA Exam Domains"></a>SAA Exam Domains</h2><p>The Exam consists of following domains.</p>
+<h3 id="Design-Resilient-Architectures"><a href="#Design-Resilient-Architectures" class="headerlink" title="Design Resilient Architectures"></a>Design Resilient Architectures</h3><ul>
+<li>Design a multi-tier architecture solution.</li>
+<li>Design highly available or/ fault-tolerant architectures.</li>
+<li>Design decoupling mechanisms using AWS services.</li>
+<li>Choosing appropiate resilient storage.</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="Design-High-Performing-Architectures"><a href="#Design-High-Performing-Architectures" class="headerlink" title="Design High-Performing Architectures"></a>Design High-Performing Architectures</h3><ul>
+<li>Identify elastic and scalable compute solutions for the workload.</li>
+<li>Selecting high performance and scalable storage solution for a workload.</li>
+<li>Selecting high performance networking solutions for a workload.</li>
+<li>Choosing high performance database solutions for the workload.</li>
+</ul>
+<h3 id="Design-Secure-Applications-and-Architectures"><a href="#Design-Secure-Applications-and-Architectures" class="headerlink" title="Design Secure Applications and Architectures"></a>Design Secure Applications and Architectures</h3><ul>
+<li>Designing secure access to AWS resources.</li>
+<li>Designing secure applications tiers.</li>
+<li>Selecting appropiate data security options</li>
+</ul>
+<h3 id="Design-Cost-Optimized-Architectures"><a href="#Design-Cost-Optimized-Architectures" class="headerlink" title="Design Cost-Optimized Architectures"></a>Design Cost-Optimized Architectures</h3><ul>
+<li>Identify cost-effective storage solutions</li>
+<li>Identify cost-effective compute and database services.</li>
+<li>Design cost-optimized network architectures</li>
+</ul>
+<h2 id="IAM-Identity-Access-Management"><a href="#IAM-Identity-Access-Management" class="headerlink" title="IAM (Identity Access Management)"></a>IAM (Identity Access Management)</h2><p>IAM is used to securely control individual and group access to AWS Resources. IAM makes it easy to provide multiple users secure access to AWS Resources.</p>
+<p>IAM can be used to manage:</p>
+<ul>
+<li>Users.</li>
+<li>Groups.</li>
+<li>Access policies.</li>
+<li>Roles.</li>
+<li>User credentials.</li>
+<li>User password policies.</li>
+<li>Multi-factor authentication (MFA).</li>
+<li>API keys for programmatic access (CLI).</li>
+</ul>
+<p><strong>IAM USER</strong>: This is an entity that represents a person or a service and you associate IAM Policy directly with the user and it defines its permissions and what the user is allowed to do within AWS environment. Furthermore, a user can be assigned the following.</p>
+<ul>
+<li>An access key-pair that allows user programmatic access to the AWS API,CLI,SDK and other development tools.</li>
+<li>A password for access to the management console.</li>
+<li>By default users can’t do anything within their accounts.</li>
+<li>Root account has full admin priviledges and you can think of it as sudo.</li>
+<li>The best practice is to not use the root crendentials instead create an IAM user assign admin priviledges</li>
+<li>Never share root crendentials.</li>
+<li>Make sure you enable MFA on all accounts.</li>
+<li>IAM users can be created to represent applications and these are known as service accounts</li>
+<li>You can have upto 5000 users per AWS account.</li>
+<li>Each user account has a friendly name and an ARN(Amazon Resource Name) which uniquely identifies the user across AWS.</li>
+<li>A password policy can be defined for users enforcing them to have stronger passwords (applies to all users)</li>
+</ul>
+<p><strong>IAM GROUPS</strong>: Its a collection of users that have policies attached to them such as group for developers, sys-admins.</p>
+<ul>
+<li>It is not an identity and cannot be identified as principal in an IAM policy.</li>
+<li>Groups are used to assigns permissions to the users.</li>
+<li>Assign the least priviledges when assigning permissions.</li>
+</ul>
+<p><strong>IAM ROLES</strong>: Assigning access to the AWS services such as you might set a role for DynamoDB to readonly.</p>
+<ul>
+<li>They are created and then assumed by trusted entities and define a set of permissions for making AWS requests.</li>
+<li>A group is not an identity and cannot be identified as a principal in an IAM policy.</li>
+<li>AWS users or services can assume a role to obtain temporary security crendentials that can used to make aws api calls.</li>
+<li>You cannot nest groups (groups within groups).</li>
+</ul>
+<p><strong>IAM Policies</strong>: They are documents that defines the permissions and can be applied to users, groups and roles. Policy documents are written in json.</p>
+<ul>
+<li>All permissions are implicitly denied by default.</li>
+<li>The most restrictive policy is applied.</li>
+<li>The IAM policy simulator is a tool that helps you understand,test and validate the effects of access controls policies.</li>
+</ul>
+<h3 id="AWS-STS"><a href="#AWS-STS" class="headerlink" title="AWS STS"></a>AWS STS</h3><p>The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-priviledge credentials for IAM users or for users that you authenticate (federated users). By default AWS STS is available as global service and all AWS STS requests go to a single endpoint at <a target="_blank" rel="noopener" href="https://sts.amazonaws.com/">https://sts.amazonaws.com</a>. All regions are enabled by default for STS but can be disabled. The region in which temporary crendentials are requested must be enabled.</p>
+<p>Advantages of STS are:</p>
+<ul>
+<li>You do not have to distribute or embed long-term AWS security credentials with an application.</li>
+<li>You can provide access to your AWS resources to users without having to define an AWS identity for them (temporary security credentials are the basis for IAM Roles and ID Federation).</li>
+<li>The temporary security credentials have a limited lifetime, so you do not have to rotate them or explicitly revoke them when they’re no longer needed.</li>
+<li>After temporary security credentials expire, they cannot be reused (you can specify how long the credentials are valid for, up to a maximum limit).</li>
+</ul>
+<p>With STS you can request a session token using one of the following APIs:</p>
+<ul>
+<li>AssumeRole – can only be used by IAM users (can be used for MFA).</li>
+<li>AssumeRoleWithSAML – can be used by any user who passes a SAML authentication response that indicates authentication from a known (trusted) identity provider.</li>
+<li>AssumeRoleWithWebIdentity – can be used by an user who passes a web identity token that indicates authentication from a known (trusted) identity provider.</li>
+<li>GetSessionToken – can be used by an IAM user or AWS account root user (can be used for MFA).</li>
+<li>GetFederationToken – can be used by an IAM user or AWS account root user.</li>
+</ul>
+<h3 id="Federation-typically-AD"><a href="#Federation-typically-AD" class="headerlink" title="Federation (typically AD):"></a>Federation (typically AD):</h3><p>Uses SAML 2.0.<br>Grants temporary access based on the users AD credentials.<br>Does not need to be a user in IAM.<br>Single sign-on allows users to login to the AWS console without assigning IAM credentials.</p>
+<h3 id="Federation-with-Mobile-Apps"><a href="#Federation-with-Mobile-Apps" class="headerlink" title="Federation with Mobile Apps:"></a>Federation with Mobile Apps:</h3><p>Use Facebook/Amazon/Google or other OpenID providers to login.</p>
+<h3 id="IAM-Best-Practices"><a href="#IAM-Best-Practices" class="headerlink" title="IAM Best Practices"></a>IAM Best Practices</h3><ul>
+<li>Lock Away Your AWS Account Root User Access Keys.</li>
+<li>Create Individual IAM Users.</li>
+<li>Use Groups to Assign Permissions to IAM Users.</li>
+<li>Grant Least Privilege.</li>
+<li>Get Started Using Permissions with AWS Managed Policies.</li>
+<li>Use Customer Managed Policies Instead of Inline Policies.</li>
+<li>Use Access Levels to Review IAM Permissions.</li>
+<li>Configure a Strong Password Policy for Your Users.</li>
+<li>Enable MFA.</li>
+<li>Use Roles for Applications That Run on Amazon EC2 Instances.</li>
+<li>Use Roles to Delegate Permissions.</li>
+<li>Do Not Share Access Keys.</li>
+<li>Rotate Credentials Regularly.</li>
+<li>Remove Unnecessary Credentials.</li>
+<li>Use Policy Conditions for Extra Security.</li>
+<li>Monitor Activity in Your AWS Account.</li>
+</ul>
+<h2 id="AWS-Global-Infrastructure-Overview"><a href="#AWS-Global-Infrastructure-Overview" class="headerlink" title="AWS Global Infrastructure Overview"></a>AWS Global Infrastructure Overview</h2><p>A cloud services platform such as Amazon Web Services owns and maintains the network-connected hardware required for these application services, while you provision and use what you need via a web application.</p>
+<p>6 advantages of cloud:</p>
+<ol>
+<li>Trade capital expense for variable expense.</li>
+<li>Benefit from massive economies of scale.</li>
+<li>Stop guessing about capacity.</li>
+<li>Increase speed and agility.</li>
+<li>Stop spending money running and maintaining data centres.</li>
+<li>Go global in minutes.</li>
+</ol>
+<p><strong>Region</strong>: A geographical area with 2 or more AZs, isolated from other AWS regions. There are 23 regions around the world at the moment.<br><strong>Availability Zone</strong>: One of more data centers that are physically separate and isolated from other AZs.<br><strong>Edge Location</strong>: A location with Cache Content that can be delivered at low latency to the users. Mostly used by CloudFront for delivering content such as static files or video content.<br><strong>Local Zone</strong>: AWS Local Zones place compute, storage, database, and other select AWS services to end-users. With AWS Local Zones, you can easily run highly-demanding applications that require single-digit millisecond latencies to your end-users.<br><strong>AWS Wavelength</strong>: AWS Wavelength enables developers to build applications that deliver single-digit millisecond latencies to mobile devices and end users. AWS Wavelength brings AWS services to the edge of the 5G network, minimizing the latency to connect to an applicaton from a mobile device.<br><strong>AWS Outposts</strong>: AWS Outposts bring native AWS services, infastructure, and operating models to virtually any data center, co-location space, or on-premises facility.<br><strong>Regional Edge Cache</strong>: Also part of the CloudFront network. These are larger caches that sit between AWS services and Edge Locations. Edge locations are Content Delivery Network (CDN) endpoints for CloudFront. There are many more edge locations than regions.<br><strong>Global Network</strong>: Highly Available, low latency private global network interconnecting every data center, AZ and AWS region.</p>
+<p><img src="/images/global-infastructure.png" alt="(Can write a description about the picture)"></p>
+<h2 id="Amazon-Virtual-Private-Cloud-VPC"><a href="#Amazon-Virtual-Private-Cloud-VPC" class="headerlink" title="Amazon Virtual Private Cloud (VPC)"></a>Amazon Virtual Private Cloud (VPC)</h2><p>Amazon Virtual Private Cloud (Amazon VPC) is a service that lets you launch AWS resources in a logically isolated virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 for most resources in your virtual private cloud, helping to ensure secure and easy access to resources and applications. You can launch your AWS resources, such as Amazon EC2 instances, into your VPC. When you create a VPC, you must specify a range of IPv4 addresses for the VPC in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16. By default you can create up to 5 VPCs per region.</p>
+<p>Components of a VPC:</p>
+<ul>
+<li><strong>A Virtual Private Cloud</strong>: A logically isolated virtual network in the AWS cloud. You define a VPC’s IP address space from ranges you select.</li>
+<li><strong>Subnet</strong>: A segment of a VPC’s IP address range where you can place groups of isolated resources (maps to an AZ, 1:1.</li>
+<li><strong>Internet Gateway</strong>: The Amazon VPC side of a connection to the public Internet.</li>
+<li><strong>NAT Gateway</strong>: A highly available, managed Network Address Translation (NAT) service for your resources in a private subnet to access the Internet.</li>
+<li><strong>Hardware VPN Connection</strong>: A hardware-based VPN connection between your Amazon VPC and your datacenter, home network, or co-location facility.</li>
+<li><strong>Virtual Private Gateway</strong>: The Amazon VPC side of a VPN connection.</li>
+<li><strong>Customer Gateway</strong>: Your side of a VPN connection.</li>
+<li><strong>Router</strong>: Routers interconnect subnets and direct traffic between Internet gateways, virtual private gateways, NAT gateways, and subnets.</li>
+<li><strong>Peering Connection</strong>: A peering connection enables you to route traffic via private IP addresses between two peered VPCs.</li>
+<li><strong>VPC Endpoints</strong>: Enables private connectivity to services hosted in AWS, from within your VPC without using an Internet Gateway, VPN, Network Address Translation (NAT) devices, or firewall proxies.</li>
+<li><strong>Egress-only Internet Gateway</strong>: A stateful gateway to provide egress only access for IPv6 traffic from the VPC to the Internet.</li>
+</ul>
+<h2 id="EC2-Elastic-Compute-Cloud"><a href="#EC2-Elastic-Compute-Cloud" class="headerlink" title="EC2 (Elastic Compute Cloud)"></a>EC2 (Elastic Compute Cloud)</h2><p>Its an elastic service that allows you to launch compute resources on the AWS cloud. In AWS context we call EC2 instances but you can think of them as virual machines.Each instance has an operating system,storage and virtual hard drive. When launching instances you can choose from AWS MarketPlace and Community AMIs. You can connect to EC2 instances using ssh.</p>
+<h2 id="Security-Groups"><a href="#Security-Groups" class="headerlink" title="Security Groups"></a>Security Groups</h2><p>These are firewalls that are applied at the instance level. They monitor traffic going in and out of EC2 instances. You can have multiple instances in a security group and you can have multipe security groups applied to the instances. Security groups are stateful. For example having a security group with port 22 access applied to the ec2 instances will allow you to launch secure shell.</p>
+<h2 id="Instance-Metadata"><a href="#Instance-Metadata" class="headerlink" title="Instance Metadata"></a>Instance Metadata</h2><p>Instance metadata is data about your instance that can be used to configure or manage the running instance. Its divided into categories and gives you the information about your instance such as hostname,ami-id and etc.</p>
+<p>You can run this command within your ec2 in commandline to get the meta data</p>
+<p>curl <a target="_blank" rel="noopener" href="http://169.254.169.254/latest/meta-data/">http://169.254.169.254/latest/meta-data/</a></p>
+<h2 id="Instance-Userdata"><a href="#Instance-Userdata" class="headerlink" title="Instance Userdata"></a>Instance Userdata</h2><p>Its basically the information that you can pass into instance when it boots up.</p>
+<p>curl <a target="_blank" rel="noopener" href="http://169.254.169.254/latest/meta-data/">http://169.254.169.254/latest/meta-data/</a></p>
+<h2 id="NAT-Instances"><a href="#NAT-Instances" class="headerlink" title="NAT Instances"></a>NAT Instances</h2><ul>
+<li>NAT instances are managed by you.</li>
+<li>Used to enable private subnet instances to access the Internet.</li>
+<li>When creating NAT instances always disable the source/destination check on the instance.</li>
+<li>NAT instances must be in a single public subnet.</li>
+<li>NAT instances need to be assigned to security groups.</li>
+</ul>
+<h2 id="NAT-Gateways"><a href="#NAT-Gateways" class="headerlink" title="NAT Gateways"></a>NAT Gateways</h2><ul>
+<li>NAT gateways are managed for you by AWS.</li>
+<li>NAT gateways are highly available in each AZ into which they are deployed.</li>
+<li>They are preferred by enterprises.</li>
+<li>Can scale automatically up to 45Gbps.</li>
+<li>No need to patch.</li>
+<li>Not associated with any security groups.</li>
+</ul>
+<p><img src="/images/gateway.jpeg" alt="(Can write a description about the picture)"></p>
+<h2 id="Direct-Connect"><a href="#Direct-Connect" class="headerlink" title="Direct Connect"></a>Direct Connect</h2><p>AWS Direct Connect is a network service that provides an alternative to using the Internet to connect a customer’s on premise sites to AWS. Data is transmitted through a private network connection between AWS and a customer’s datacenter or corporate network.</p>
+<p>Benefits:</p>
+<ul>
+<li>Reduce cost when using large volumes of traffic.</li>
+<li>Increase reliability (predictable performance).</li>
+<li>Increase bandwidth (predictable bandwidth).</li>
+<li>Decrease latency.</li>
+<li>Each AWS Direct Connect connection can be configured with one or more virtual interfaces (VIFs).</li>
+</ul>
+<p>Public VIFs allow access to public services such as S3, EC2, and DynamoDB. Private VIFs allow access to your VPC. From Direct Connect you can connect to all AZs within the Region. You can establish IPSec connections over public VIFs to remote regions. Direct Connect is charged by port hours and data transfer.</p>
+<h2 id="AWS-Global-Accelerator"><a href="#AWS-Global-Accelerator" class="headerlink" title="AWS Global Accelerator"></a>AWS Global Accelerator</h2><p>AWS Global Accelerator is a service that improves the availability and performance of applications with local or global users. It provides static IP addresses that act as a fixed entry point to application endpoints in a single or multiple AWS Regions, such as Application Load Balancers, Network Load Balancers or EC2 instances. Uses the AWS global network to optimize the path from users to applications, improving the performance of TCP and UDP traffic.</p>
+<p>AWS Global Accelerator continually monitors the health of application endpoints and will detect an unhealthy endpoint and redirect traffic to healthy endpoints in less than 1 minute.</p>
+<h2 id="Public-Private-and-Elastic-IP-addresses"><a href="#Public-Private-and-Elastic-IP-addresses" class="headerlink" title="Public, Private and Elastic IP addresses."></a>Public, Private and Elastic IP addresses.</h2><p><strong>Public IP Address</strong>:</p>
+<ul>
+<li>Lost when the instance is stopped.</li>
+<li>Used in public subnets.</li>
+<li>No Charge</li>
+<li>Associated with private IP address on the instance.</li>
+<li>Cannot be moved between instances.</li>
+</ul>
+<p><strong>Private IP Address</strong>:</p>
+<ul>
+<li>Retained when the instance is stopped.</li>
+<li>Used in public and private subnets.</li>
+</ul>
+<p><strong>Elastic IP Address</strong>:</p>
+<ul>
+<li>Static Public IP Address.</li>
+<li>You are charged if not used.</li>
+<li>Associated with a private IP address on the instance.</li>
+</ul>
+<p>Note: Elastic Fabric Adapter is a network device that you can attach to reduce latency and increase throughput for distributed HPC(High Performance Computing).</p>
+<h2 id="EC2-Placement-Groups"><a href="#EC2-Placement-Groups" class="headerlink" title="EC2 Placement Groups"></a>EC2 Placement Groups</h2><p><strong>Cluster</strong>: This placement type packs instances close together inside an Availability Zone. This strategy enables workloads to achieve the low latency network performance necessary for tightly coupled node to node communication that is typical of HPC applications.</p>
+<p>WHAT: Instances are placed into a low latency group within a single AZ<br>WHEN: Need a low network latency or high network throughput.<br>Pros: Get most out of enhanced networking instances.<br>Cons: Finite capacity recommends launching all you might need upfront.</p>
+<p><strong>Partition</strong>: This placement type spreads your instances across logical partitions such that groups of instances in once partition do not share the underlying hardware with groups of instances in different partitions. This strategy is typically used by large distributed and replicated workloads such as Hadoop, Cassandra and Kafka.</p>
+<p>WHAT: Instances are grouped into logical segments called partitions which use distinct hardware.<br>WHEN: Need control and visibility into instance placement.<br>Pros: Reduces likelihood of correlated failures for large workloads.<br>Cons: Partition placement groups are not supported for dedicated hosts.</p>
+<p><strong>Spread</strong>: This placement type strictly places a small group of instances across distinct underlying hardward to reduce correlated failures.</p>
+<p>WHAT: Instances are spread across underlying hardware.<br>WHEN: Reduce the risk of simultaneous instance failure if underlying hardware fails.<br>Pros: Can span multiple AZs<br>Cons: Maximum upto 7 instances running per group,per AZ.</p>
+<h2 id="Elastic-Load-Balancing-and-Auto-Scaling"><a href="#Elastic-Load-Balancing-and-Auto-Scaling" class="headerlink" title="Elastic Load Balancing and Auto Scaling."></a>Elastic Load Balancing and Auto Scaling.</h2><p><img src="/images/elb.png" alt="(Can write a description about the picture)"></p>
+<h3 id="Application-Load-Balancer"><a href="#Application-Load-Balancer" class="headerlink" title="Application Load Balancer"></a>Application Load Balancer</h3><ol>
+<li>Operates at the request level.</li>
+<li>Routes based on the content of request (Layer 7)</li>
+<li>Supports path based routing, host based routing, query string parameter based routing and source IP address based routing.</li>
+<li>Supports IP addresses, Lambda Functions and containers as targets.</li>
+<li>HTTPS, HTTP</li>
+</ol>
+<p><img src="/images/application-lb.png" alt="(Can write a description about the picture)"></p>
+<h3 id="Network-Load-Balancer"><a href="#Network-Load-Balancer" class="headerlink" title="Network Load Balancer"></a>Network Load Balancer</h3><ol>
+<li>Operates at the connection level.</li>
+<li>Routes connections based on IP protocol Data (layer 4)</li>
+<li>Offers ultra high performance, low latency, and TLS offloading at scale.</li>
+<li>Can have static IP / elastic IP</li>
+<li>Supports UDP and static IP addresses as targets.</li>
+</ol>
+<p><img src="/images/network-lb.png" alt="(Can write a description about the picture)"></p>
+<h3 id="Classic-Load-Balancer"><a href="#Classic-Load-Balancer" class="headerlink" title="Classic Load Balancer"></a>Classic Load Balancer</h3><ol>
+<li>Old generation and AWS does not recommended for new applications.</li>
+<li>Performs routing at Layer 4 and Layer 7</li>
+<li>Use for existing applications running on EC2-Classic instance</li>
+</ol>
+<h3 id="Gateway-Load-Balancer"><a href="#Gateway-Load-Balancer" class="headerlink" title="Gateway Load Balancer"></a>Gateway Load Balancer</h3><p>You can use Gateway Load Balancers to deploy, scale, and manage virtual appliances. Examples of such virtual appliances are firewalls, IDPS, and deep packet inspection systems. Gateway Load Balancers combine a transparent network gateway (that is, a single entry and exit point for all traffic). They distribute traffic while scaling your virtual appliances with the demand.</p>
+<h4 id="How-a-Gateway-Load-Balancer-works"><a href="#How-a-Gateway-Load-Balancer-works" class="headerlink" title="How a Gateway Load Balancer works"></a>How a Gateway Load Balancer works</h4><p>A Gateway Load Balancer operates at the third layer of the OSI model, the network layer. It listens for all IP packets across all ports and forwards traffic to the target group that is specified in the listener rule. It maintains stickiness of flows to a specific target appliance. The load balancer recognizes when a packet is part of an established flow and routes it to the same target as other packets in that flow. </p>
+<p>Gateway Load Balancers use Gateway Load Balancer endpoints to securely exchange traffic across VPC boundaries. They provide private connectivity between virtual appliances in the service provider VPC and application servers in the service consumer VPC. You deploy the Gateway Load Balancer in the same VPC as the virtual appliances. You register the virtual appliances with a target group for the Gateway Load Balancer.</p>
+<h3 id="Gateway-Load-Balancer-pricing"><a href="#Gateway-Load-Balancer-pricing" class="headerlink" title="Gateway Load Balancer pricing"></a>Gateway Load Balancer pricing</h3><p>You are charged for each hour or partial hour that a Gateway Load Balancer is running and the number of Gateway Load Balancer Capacity Units (GLCU) used per hour. A GLCU is the highest single measure (averaged over an hour) of:</p>
+<ul>
+<li>New connections or flows</li>
+<li>Active connections or flows</li>
+<li>Processed bytes</li>
+</ul>
+<p>Gateway Load Balancer uses Gateway Load Balancer Endpoint (GWLBE) to securely exchange traffic across VPC boundaries. GWLBE is priced and billed separately.</p>
+<h2 id="Internet-Facing-vs-Internal"><a href="#Internet-Facing-vs-Internal" class="headerlink" title="Internet Facing vs Internal"></a>Internet Facing vs Internal</h2><h3 id="Internet-Facing"><a href="#Internet-Facing" class="headerlink" title="Internet Facing:"></a>Internet Facing:</h3><ul>
+<li>ELB nodes have public IPs.</li>
+<li>Routes traffic to the private IP addresses of the EC2 instances.</li>
+<li>Need one public subnet in each AZ where ELB is defined.</li>
+</ul>
+<h3 id="Internal-ELB"><a href="#Internal-ELB" class="headerlink" title="Internal ELB:"></a>Internal ELB:</h3><ul>
+<li>ELB nodes have private IPs.</li>
+<li>Routes traffic to the private IPs of the EC2 instances.</li>
+</ul>
+<h2 id="Elastic-Load-Balancing"><a href="#Elastic-Load-Balancing" class="headerlink" title="Elastic Load Balancing"></a>Elastic Load Balancing</h2><h2 id="ELB-Security-Groups"><a href="#ELB-Security-Groups" class="headerlink" title="ELB Security Groups"></a>ELB Security Groups</h2><p>Security Groups control the ports and protocols that can reach the front-end listener. You must assign a security group for the ports and the protocols on the front end listener.</p>
+<h2 id="ELB-Monitoring"><a href="#ELB-Monitoring" class="headerlink" title="ELB Monitoring"></a>ELB Monitoring</h2><p>CloudWatch every 1 min. ELB service sends information when requests are active.</p>
+<h2 id="Access-Logs"><a href="#Access-Logs" class="headerlink" title="Access Logs"></a>Access Logs</h2><p>Disabled by Default. Includes information about the client(not included in the Cloud Watch Metrics). Can identify requester IP,request type etc. Can be optionally stored and retained in S3.</p>
+<h2 id="Cloud-Watch"><a href="#Cloud-Watch" class="headerlink" title="Cloud Watch"></a>Cloud Watch</h2><p>CloudWatch is a monitoring and observability service built for DevOps engineers, developers, site reliability engineers, and information technology managers. CloudWatch provides you with data and actionable insights to help you monitor your applications, respond to system-wide performance changes, optimize resource utilization, and get a unified view of operational health. It allows you to collect and track metrics, create alarms, send notifications, or act on resources you are monitoring if needed. You can proactively use CloudWatch to improve your system, and you can use CloudWatch in combination with other services, such as: </p>
+<ul>
+<li>Amazon SNS </li>
+<li>Amazon EC2 Auto Scaling</li>
+<li>AWS CloudTrail</li>
+<li>AWS IAM</li>
+</ul>
+<p>Below are common components of Cloud Watch</p>
+<h3 id="Metrics"><a href="#Metrics" class="headerlink" title="Metrics"></a>Metrics</h3><p>Metrics are data about the performance of your systems. CloudWatch gathers all metrics in one place. These metrics can come from AWS services that are providing metrics by default, such as EC2 instances, Amazon Elastic Block Store (Amazon EBS) volumes, or Amazon Relational Database Service (Amazon RDS) instances, but also from your own application metrics.</p>
+<h3 id="Alarms"><a href="#Alarms" class="headerlink" title="Alarms"></a>Alarms</h3><p>You can use alarms to automatically initiate actions on your behalf. An alarm watches a single metric over a specified time period. It performs one or more specified actions based on the value of the metric relative to a threshold over time. The action is a notification that is sent to an Amazon SNS topic or an Auto Scaling policy (described later in this module). You can also add alarms to dashboards.</p>
+<p>In the following example, an alarm is triggered when the CPU utilization metric (that is, the percentage of allocated EC2 compute units that are currently in use on the instance) is greater than 50 percent for 5 minutes. The alarm triggers an action, such as running an Auto Scaling policy or sending a notification to the development team.</p>
+<p><img src="/images/alarm.png" alt="(Can write a description about the picture)"></p>
+<h3 id="Logs"><a href="#Logs" class="headerlink" title="Logs"></a>Logs</h3><p>You can use CloudWatch Logs to monitor your applications and systems by using log data. For example, you can track the number of errors that occur in your application logs, and CloudWatch will send a notification when the rate of error exceeds a threshold that you specify. Additionally, you can use CloudWatch Logs Insights to quickly analyze your logs. It gives you fast, interactive queries and visualizations.</p>
+<p>Logs can be stored in Amazon S3, as the following image shows.</p>
+<p><img src="/images/logs.png" alt="(Can write a description about the picture)"></p>
+<h2 id="AWS-Direct-Connect"><a href="#AWS-Direct-Connect" class="headerlink" title="AWS Direct Connect"></a>AWS Direct Connect</h2><p>AWS Direct Connect is a cloud service that facilitates establishing a dedicated network connection between your network and one of the AWS Direct Connect locations. Using standard Ethernet fiber-optic cables (802.1q), this dedicated connection can be partitioned into multiple virtual interfaces. It can reduce your network costs, increase bandwidth throughput, and provide a more consistent network experience. It’s available with capacities of 1 Gbps, 10 Gbps, and 100 Gbps. </p>
+<p>Direct Connect is useful for:</p>
+<p><strong>Hybrid environments</strong>: Applications that require access to existing data center equipment, such as an on-premises database<br><strong>Frequently transferring large datasets</strong>: Applications that operate on large datasets, such as high performance computing (HPC) applications, because:</p>
+<ul>
+<li>Transfers do not compete with general internet-bound traffic for bandwidth</li>
+<li>High bandwidth provides increased network performance</li>
+<li>Traffic over direct connect generally costs less than traffic over an internet connection</li>
+</ul>
+<p><strong>Network-sensitive applications</strong>: Applications that require predictable network performance, such as those applications that operate on real time data feeds (for example, audio or video streams).<br><strong>Security and compliance</strong>: Enterprise security or regulatory policies sometimes require that applications that are hosted in AWS can be accessed through private network circuits only.</p>
+<h3 id="AWS-Site-to-Site-VPN-over-AWS-Direct-Connect"><a href="#AWS-Site-to-Site-VPN-over-AWS-Direct-Connect" class="headerlink" title="AWS Site-to-Site VPN over AWS Direct Connect"></a>AWS Site-to-Site VPN over AWS Direct Connect</h3><p><img src="/images/site-site.png" alt="(Can write a description about the picture)"></p>
+<p>Customers can use AWS Site-to-Site VPN to enable encrypted communications over AWS Direct Connect.</p>
+<p>You can combine AWS Direct Connect dedicated network connections with the AWS Site-to-Site VPN. This solution combines the benefits of the end-to-end secure IPSec connection with low latency and increased bandwidth of the AWS Direct Connect. The combination provides a more consistent network experience than internet-based VPN connections. </p>
+<p>To use Site-to-Site VPN over Direct Connect, you must use a public virtual interface. Your public virtual interface receives all AWS public IP address prefixes from each AWS Region (except the AWS China Region). These addresses include the public IP addresses of AWS managed VPN endpoints. A BGP connection is established between the AWS Direct Connect and your router on the public virtual interface. Another BGP session or a static route will be established between the virtual private gateway and your router on the IPSec VPN tunnel. If your Direct Connect connection also has a private VIF, any traffic sent to the VPC through the private VIF will not use the Site-to-Site VPN connection.</p>
+<h2 id="AWS-Cloud-Formation"><a href="#AWS-Cloud-Formation" class="headerlink" title="AWS Cloud Formation"></a>AWS Cloud Formation</h2><p>AWS CloudFormation is a service that allows you to manage, configure and provision your AWS infrastructure as code. AWS CloudFormation provides a common language for you to describe and provision all the infrastructure resources in your cloud environment. Resources are defined using a CloudFormation template.</p>
+<p><img src="/images/cloud-formation.png" alt="(Can write a description about the picture)"></p>
+<p><strong>Resources</strong> - the required Resources section declares the AWS resources that you want to include in the stack, such as an Amazon EC2 instance or an Amazon S3 bucket. This is mandatory and resources re declared and can reference each other.</p>
+<p><strong>Parameters</strong> - use the optional Parameters section to customize your templates. Parameters enable you to input custom values to your template each time you create or update a stack. Useful for template reuse.</p>
+<h2 id="AWS-Cloud-Formation-Intrinsic-Functions"><a href="#AWS-Cloud-Formation-Intrinsic-Functions" class="headerlink" title="AWS Cloud Formation (Intrinsic Functions)"></a>AWS Cloud Formation (Intrinsic Functions)</h2><p>AWS CloudFormation provides several built in functions that help you to manage your stacks. Use intrinsic functions in your templates to assign values to properties that are not available until run time.</p>
+<h3 id="Intrinsic-Function-Ref"><a href="#Intrinsic-Function-Ref" class="headerlink" title="Intrinsic Function - Ref"></a>Intrinsic Function - Ref</h3><p>The intrinsic function Ref returns the value of the specified parameter or resource.</p>
+<ul>
+<li>When you specify a parameter’s logical name, it returns the value of the parameter.</li>
+<li>When you specify a resource’s logical name, it returns a value that you can typically use to refer to that resource, such as a physical ID.</li>
+</ul>
+<h3 id="Intrinsic-Function-GetAtt"><a href="#Intrinsic-Function-GetAtt" class="headerlink" title="Intrinsic Function - GetAtt"></a>Intrinsic Function - GetAtt</h3><p>The Fn::GetAtt intrinsic function returns the value of an attribute from a resource in the template.</p>
+<h3 id="Intrinsic-Function-FindInMap"><a href="#Intrinsic-Function-FindInMap" class="headerlink" title="Intrinsic Function - FindInMap"></a>Intrinsic Function - FindInMap</h3><p>The intrinsic function Fn::FindInMap returns the value corresponding to keys in a two-level map that is declared in the Mapping section.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/aws/" rel="tag"><i class="fa fa-tag"></i> AWS</a>
+              <a href="/tags/AWS-SAA/" rel="tag"><i class="fa fa-tag"></i> AWS SAA</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/16/aws-efs/" rel="prev" title="AWS Elastic File System">
+                  <i class="fa fa-chevron-left"></i> AWS Elastic File System
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fab fa-aws"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sylvester Runesu Dzimiri</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">55k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">50 mins.</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
