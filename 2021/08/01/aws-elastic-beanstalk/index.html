@@ -20,15 +20,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"sylvesterdzimiri.com","root":"/","images":"/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":120},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Introduction">
+<meta name="description" content="IntroductionAWS Elastic Beanstalk can be used to quickly deploy and manage applications in the AWS Cloud. Developers upload applications and Elastic Beanstalk handles the deployment details of capacit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AWS Elastic Beanstalk">
 <meta property="og:url" content="https://sylvesterdzimiri.com/2021/08/01/aws-elastic-beanstalk/index.html">
 <meta property="og:site_name" content="Sylvesters Blog">
-<meta property="og:description" content="Introduction">
+<meta property="og:description" content="IntroductionAWS Elastic Beanstalk can be used to quickly deploy and manage applications in the AWS Cloud. Developers upload applications and Elastic Beanstalk handles the deployment details of capacit">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-01T21:17:52.000Z">
-<meta property="article:modified_time" content="2021-08-03T01:57:22.000Z">
+<meta property="article:modified_time" content="2021-08-25T00:32:40.861Z">
 <meta property="article:author" content="Sylvester Runesu Dzimiri">
 <meta property="article:tag" content="AWS">
 <meta property="article:tag" content="AWS SAA">
@@ -148,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elastic-Beanstalk-Layers"><span class="nav-number">2.</span> <span class="nav-text">Elastic Beanstalk Layers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Application"><span class="nav-number">2.1.</span> <span class="nav-text">Application</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Application-version"><span class="nav-number">2.2.</span> <span class="nav-text">Application version</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Environment"><span class="nav-number">2.3.</span> <span class="nav-text">Environment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Environment-tier"><span class="nav-number">2.4.</span> <span class="nav-text">Environment tier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Environment-configurations"><span class="nav-number">2.5.</span> <span class="nav-text">Environment configurations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configuration-template"><span class="nav-number">2.6.</span> <span class="nav-text">Configuration template</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,18 +164,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -270,7 +270,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-02 20:57:22" itemprop="dateModified" datetime="2021-08-02T20:57:22-05:00">2021-08-02</time>
+        <time title="Modified: 2021-08-24 19:32:40" itemprop="dateModified" datetime="2021-08-24T19:32:40-05:00">2021-08-24</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -297,14 +297,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>12</span>
+      <span>3k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -315,7 +315,36 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><span id="more"></span>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>AWS Elastic Beanstalk can be used to quickly deploy and manage applications in the AWS Cloud. Developers upload applications and Elastic Beanstalk handles the deployment details of capacity provisioning, load balancing, auto-scaling, and application health monitoring. AWS Elastic Beanstalk leverages Elastic Load Balancing and Auto Scaling to automatically scale your application in and out based on your application’s specific needs.</p>
+<span id="more"></span>
+
+<p>In addition, multiple availability zones give you an option to improve application reliability and availability by running in more than one zone.</p>
+<ul>
+<li>Considered a Platform as a Service (PaaS) solution.</li>
+<li>Supports Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker web applications.</li>
+</ul>
+<p>Supports the following languages and development stacks:</p>
+<ol>
+<li>Apache Tomcat for Java applications.</li>
+<li>Apache HTTP Server for PHP applications.</li>
+<li>Apache HTTP Server for Python applications.</li>
+<li>Nginx or Apache HTTP Server for Node.js applications.</li>
+<li>Passenger or Puma for Ruby applications.</li>
+<li>Microsoft IIS 7.5, 8.0, and 8.5 for .NET applications.</li>
+<li>Java SE.</li>
+<li>Docker.</li>
+<li>Go.</li>
+<li>Deploys to server platforms such as Apache Tomcat, Nginx, Passenger, Puma, and IIS.</li>
+</ol>
+<p>Developers can focus on writing code and don’t need to worry about deploying infrastructure. You maintain full control of the underlying resources. You pay only for the resources provisioned, not for Elastic Beanstalk itself. Elastic Beanstalk automatically scales your application up and down. You can select the EC2 instance type that is optimal for your application. Can retain full administrative control or have Elastic Beanstalk do it for you.</p>
+<p>The Managed Platform Updates feature automatically applies updates for your operating system, Java, PHP, Node.js etc. Elastic Beanstalk monitors and manages application health and information is viewable via a dashboard. AWS CloudFormation is used by Elastic Beanstalk to deploy the resources. Integrated with CloudWatch and X-Ray for performance data and metrics.</p>
+<h2 id="Elastic-Beanstalk-Layers"><a href="#Elastic-Beanstalk-Layers" class="headerlink" title="Elastic Beanstalk Layers"></a>Elastic Beanstalk Layers</h2><p>There are several layers that make up Elastic Beanstalk and each layer is described below:</p>
+<h3 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h3><p>Within Elastic Beanstalk, an application is a collection of different elements, such as environments, environment configurations, and application versions. You can have multiple application versions held within an application.</p>
+<h3 id="Application-version"><a href="#Application-version" class="headerlink" title="Application version"></a>Application version</h3><p>An application version is a very specific reference to a section of deployable code. The application version will point typically to an Amazon s3 bucket containing the code.</p>
+<h3 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h3><p>An environment refers to an application version that has been deployed on AWS resources. The resources are configured and provisioned by AWS Elastic Beanstalk. The environment is comprised of all the resources created by Elastic Beanstalk and not just an EC2 instance with your uploaded code.</p>
+<h3 id="Environment-tier"><a href="#Environment-tier" class="headerlink" title="Environment tier"></a>Environment tier</h3><p>Determines how Elastic Beanstalk provisions resources based on what the application is designed to do. Web servers are standard applications that listen for and then process HTTP requests, typically over port 80. Workers are specialized applications that have a background processing task that listens for messages on an Amazon SQS queue.</p>
+<h3 id="Environment-configurations"><a href="#Environment-configurations" class="headerlink" title="Environment configurations"></a>Environment configurations</h3><p>An environment configuration is a collection of parameters and settings that dictate how an environment will have its resources provisioned by Elastic Beanstalk and how these resources will behave.</p>
+<h3 id="Configuration-template"><a href="#Configuration-template" class="headerlink" title="Configuration template"></a>Configuration template</h3><p>This is a template that provides the baseline for creating a new, unique environment configuration.</p>
 
     </div>
 
@@ -372,13 +401,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">55k</span>
+    <span title="Symbols count total">129k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">50 mins.</span>
+    <span title="Reading time total">1:57</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>

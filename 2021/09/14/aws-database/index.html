@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/header.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/header.png">
+  <link rel="mask-icon" href="/images/header.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"sylvesterdzimiri.com","root":"/","images":"/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":120},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="What are databases?Data is any bit of information that a system is accessing, using, or generating. To function, applications need a place where data from users, devices, and applications can be store">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introduction to Database">
+<meta property="og:url" content="https://sylvesterdzimiri.com/2021/09/14/aws-database/index.html">
+<meta property="og:site_name" content="Sylvesters Blog">
+<meta property="og:description" content="What are databases?Data is any bit of information that a system is accessing, using, or generating. To function, applications need a place where data from users, devices, and applications can be store">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/database.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/structured.jpeg">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/unstructured.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/semi.jpeg">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/conversion.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/elasticache.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/dynamo.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/document.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/pipeline.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/ingestion.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/site-to-site.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/direct.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/multi-part.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/snowball.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/datasync.jpeg">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/storage-gw.jpeg">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/batch.jpeg">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/lambda.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/kinesis-data.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/kinesis-lambda.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/shard.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/datastream.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/api-kinesis.jpeg">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/analytics.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/hadoop.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/hadoop-comparison.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/emr-firewall.png">
+<meta property="article:published_time" content="2021-09-14T13:47:30.000Z">
+<meta property="article:modified_time" content="2021-09-15T22:35:40.880Z">
+<meta property="article:author" content="Sylvester Runesu Dzimiri">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="AWS SAA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sylvesterdzimiri.com/images/database.png">
+
+
+<link rel="canonical" href="https://sylvesterdzimiri.com/2021/09/14/aws-database/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sylvesterdzimiri.com/2021/09/14/aws-database/","path":"2021/09/14/aws-database/","title":"Introduction to Database"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Introduction to Database | Sylvesters Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Sylvesters Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-are-databases"><span class="nav-number">1.</span> <span class="nav-text">What are databases?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Types-of-applications-that-databases-serve"><span class="nav-number">2.</span> <span class="nav-text">Types of applications that databases serve</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Database-types"><span class="nav-number">3.</span> <span class="nav-text">Database types</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Relational"><span class="nav-number">3.1.</span> <span class="nav-text">Relational</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-value"><span class="nav-number">3.2.</span> <span class="nav-text">Key-value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#In-memory"><span class="nav-number">3.3.</span> <span class="nav-text">In-memory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Document"><span class="nav-number">3.4.</span> <span class="nav-text">Document</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wide-column"><span class="nav-number">3.5.</span> <span class="nav-text">Wide column</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graph"><span class="nav-number">3.6.</span> <span class="nav-text">Graph</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-series"><span class="nav-number">3.7.</span> <span class="nav-text">Time-series</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ledger"><span class="nav-number">3.8.</span> <span class="nav-text">Ledger</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-sources"><span class="nav-number">4.</span> <span class="nav-text">Data sources</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Structured"><span class="nav-number">4.1.</span> <span class="nav-text">Structured</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semi-structured"><span class="nav-number">4.2.</span> <span class="nav-text">Semi-structured</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unstructured"><span class="nav-number">4.3.</span> <span class="nav-text">Unstructured</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Managing-a-database-migration-project"><span class="nav-number">5.</span> <span class="nav-text">Managing a database migration project</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Examples-of-database-use-cases"><span class="nav-number">6.</span> <span class="nav-text">Examples of database use cases</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-case-1-Media-streaming-with-ElastiCache"><span class="nav-number">6.1.</span> <span class="nav-text">Use case 1: Media streaming with ElastiCache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-case-2-Gaming-application-with-DynamoDB"><span class="nav-number">6.2.</span> <span class="nav-text">Use case 2: Gaming application with DynamoDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-case-3-Profile-management-with-Amazon-DocumentDB"><span class="nav-number">6.3.</span> <span class="nav-text">Use case 3: Profile management with Amazon DocumentDB</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Big-Data-Ingestion-and-Transfer"><span class="nav-number">7.</span> <span class="nav-text">Big Data Ingestion and Transfer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-data-pipeline"><span class="nav-number">7.1.</span> <span class="nav-text">Big data pipeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Types-of-data-ingestion"><span class="nav-number">7.2.</span> <span class="nav-text">Types of data ingestion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Connecting-to-AWS"><span class="nav-number">8.</span> <span class="nav-text">Connecting to AWS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Virtual-private-network"><span class="nav-number">8.1.</span> <span class="nav-text">Virtual private network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AWS-Direct-Connect"><span class="nav-number">8.2.</span> <span class="nav-text">AWS Direct Connect</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-movement-into-AWS"><span class="nav-number">9.</span> <span class="nav-text">Data movement into AWS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Amazon-S3-multipart-data-loads"><span class="nav-number">9.1.</span> <span class="nav-text">Amazon S3 multipart data loads</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Batch-data-transfer-services"><span class="nav-number">9.2.</span> <span class="nav-text">Batch data transfer services</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AWS-DataSync"><span class="nav-number">9.3.</span> <span class="nav-text">AWS DataSync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Amazon-S3-Transfer-Acceleration"><span class="nav-number">9.4.</span> <span class="nav-text">Amazon S3 Transfer Acceleration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AWS-Storage-Gateway"><span class="nav-number">9.5.</span> <span class="nav-text">AWS Storage Gateway</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-AWS-Snow-Family-overview"><span class="nav-number">10.</span> <span class="nav-text">The AWS Snow Family overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AWS-Snowcone"><span class="nav-number">10.1.</span> <span class="nav-text">AWS Snowcone</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AWS-Snowball"><span class="nav-number">10.2.</span> <span class="nav-text">AWS Snowball</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Snowball-features"><span class="nav-number">10.3.</span> <span class="nav-text">Snowball features</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AWS-Snowmobile"><span class="nav-number">10.4.</span> <span class="nav-text">AWS Snowmobile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Snowmobile-features"><span class="nav-number">10.5.</span> <span class="nav-text">Snowmobile features</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Types-of-data-processing"><span class="nav-number">11.</span> <span class="nav-text">Types of data processing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-cases-for-stream-processing"><span class="nav-number">11.1.</span> <span class="nav-text">Use cases for stream processing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Lambda-architecture"><span class="nav-number">12.</span> <span class="nav-text">The Lambda architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-streaming-solutions"><span class="nav-number">13.</span> <span class="nav-text">Data streaming solutions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Decouple-collection-and-processing"><span class="nav-number">13.1.</span> <span class="nav-text">Decouple collection and processing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collect-multiple-streams-together"><span class="nav-number">13.2.</span> <span class="nav-text">Collect multiple streams together</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Amazon-Kinesis"><span class="nav-number">14.</span> <span class="nav-text">Amazon Kinesis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kinesis-Data-Firehose"><span class="nav-number">15.</span> <span class="nav-text">Kinesis Data Firehose</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Delivery-stream"><span class="nav-number">15.1.</span> <span class="nav-text">Delivery stream</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Records"><span class="nav-number">15.2.</span> <span class="nav-text">Records</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-producer"><span class="nav-number">15.3.</span> <span class="nav-text">Data producer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Buffer-size-and-buffer-interval"><span class="nav-number">15.4.</span> <span class="nav-text">Buffer size and buffer interval</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-transformation-with-Kinesis-Data-Firehose"><span class="nav-number">16.</span> <span class="nav-text">Data transformation with Kinesis Data Firehose</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-conversion-with-Kinesis-Data-Firehose"><span class="nav-number">17.</span> <span class="nav-text">Data conversion with Kinesis Data Firehose</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Amazon-Kinesis-Data-Streams"><span class="nav-number">18.</span> <span class="nav-text">Amazon Kinesis Data Streams</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Creating-a-Kinesis-data-stream"><span class="nav-number">19.</span> <span class="nav-text">Creating a Kinesis data stream</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Determine-the-initial-size-of-a-stream"><span class="nav-number">19.1.</span> <span class="nav-text">Determine the initial size of a stream</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Producers-submit-data-records-to-the-Kinesis-data-stream"><span class="nav-number">20.</span> <span class="nav-text">Producers submit data records to the Kinesis data stream</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Strategies-for-resharding"><span class="nav-number">21.</span> <span class="nav-text">Strategies for resharding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kinesis-Video-Streams"><span class="nav-number">22.</span> <span class="nav-text">Kinesis Video Streams</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-Kinesis-Video-Streams-works"><span class="nav-number">22.1.</span> <span class="nav-text">How Kinesis Video Streams works</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integration-with-Amazon-Rekognition-Video"><span class="nav-number">22.2.</span> <span class="nav-text">Integration with Amazon Rekognition Video</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Amazon-Kinesis-Data-Analytics"><span class="nav-number">23.</span> <span class="nav-text">Amazon Kinesis Data Analytics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Kinesis-Data-Analytics-applications"><span class="nav-number">23.1.</span> <span class="nav-text">Kinesis Data Analytics applications</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integration-with-AWS-Lambda"><span class="nav-number">23.2.</span> <span class="nav-text">Integration with AWS Lambda</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Amazon-Kinesis-Data-Analytics-with-Apache-Flink"><span class="nav-number">23.3.</span> <span class="nav-text">Amazon Kinesis Data Analytics with Apache Flink</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache-Hadoop-and-Amazon-EMR"><span class="nav-number">24.</span> <span class="nav-text">Apache Hadoop and Amazon EMR</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache-Hadoop"><span class="nav-number">24.1.</span> <span class="nav-text">Apache Hadoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop-Distributed-File-System-HDFS"><span class="nav-number">24.2.</span> <span class="nav-text">Hadoop Distributed File System (HDFS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MapReduce"><span class="nav-number">24.3.</span> <span class="nav-text">MapReduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YARN"><span class="nav-number">24.4.</span> <span class="nav-text">YARN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop-Common"><span class="nav-number">24.5.</span> <span class="nav-text">Hadoop Common</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Benefits-of-Hadoop"><span class="nav-number">24.6.</span> <span class="nav-text">Benefits of Hadoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-Apache-Hadoop-handles-your-input-data"><span class="nav-number">24.7.</span> <span class="nav-text">How Apache Hadoop handles your input data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Four-best-practices-for-ingesting-input-data"><span class="nav-number">24.8.</span> <span class="nav-text">Four best practices for ingesting input data</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Amazon-EMR"><span class="nav-number">25.</span> <span class="nav-text">Amazon EMR</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Amazon-EMR-infrastructure"><span class="nav-number">25.1.</span> <span class="nav-text">Amazon EMR infrastructure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Processing-data"><span class="nav-number">25.2.</span> <span class="nav-text">Processing data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#General-benefits-of-Amazon-EMR"><span class="nav-number">25.3.</span> <span class="nav-text">General benefits of Amazon EMR</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Sylvester Runesu Dzimiri"
+      src="/images/sylvester.png">
+  <p class="site-author-name" itemprop="name">Sylvester Runesu Dzimiri</p>
+  <div class="site-description" itemprop="description">If you cannot do great things, do small things in a great way.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sdzimiri" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sdzimiri" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sylvesterdzimiri7@gmail.com" title="E-Mail → mailto:sylvesterdzimiri7@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/_sylvesterdzimiri" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;_sylvesterdzimiri" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.linkedin.com/in/sylvester-dzimiri/" title="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;sylvester-dzimiri&#x2F;" rel="noopener" target="_blank">LinkedIn</a>
+        </li>
+    </ul>
+  </div>
+<div class="cc-license animated" itemprop="sponsor">
+<p><i> Ukakundikana nhasi, mangwana muka uzame zvakare! </i></p>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sylvesterdzimiri.com/2021/09/14/aws-database/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/sylvester.png">
+      <meta itemprop="name" content="Sylvester Runesu Dzimiri">
+      <meta itemprop="description" content="If you cannot do great things, do small things in a great way.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sylvesters Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Introduction to Database
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-14 08:47:30" itemprop="dateCreated datePublished" datetime="2021-09-14T08:47:30-05:00">2021-09-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-15 17:35:40" itemprop="dateModified" datetime="2021-09-15T17:35:40-05:00">2021-09-15</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/aws-certification/" itemprop="url" rel="index"><span itemprop="name">AWS Certification</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/aws-certification/aws-ccp/" itemprop="url" rel="index"><span itemprop="name">AWS CCP</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/aws-certification/aws-saa/" itemprop="url" rel="index"><span itemprop="name">AWS SAA</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/aws-certification/AWS-SAA-PRO/" itemprop="url" rel="index"><span itemprop="name">AWS SAA PRO</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>57k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>52 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="What-are-databases"><a href="#What-are-databases" class="headerlink" title="What are databases?"></a>What are databases?</h2><p>Data is any bit of information that a system is accessing, using, or generating. To function, applications need a place where data from users, devices, and applications can be stored and from where it can be made available. Databases are the backend systems that provide or store data for applications of all types. These types of applications range from small mobile apps to enterprise applications that operate at internet scale. </p>
+<h2 id="Types-of-applications-that-databases-serve"><a href="#Types-of-applications-that-databases-serve" class="headerlink" title="Types of applications that databases serve"></a>Types of applications that databases serve</h2><p><strong>Internet-scale applications</strong> are globally distributed and handle millions of requests per second over hundreds of terabytes of data. These databases automatically scale up and down to accommodate spiky workloads.</p>
+<span id="more"></span>
+
+<p><strong>Real-time application</strong> examples include gaming leaderboards, ride-hailing services, ad targeting, user session stores, and real-time analytics. These applications need microsecond latency and high throughput to support millions of requests per second. These databases provide data caching capabilities that are required for these applications.</p>
+<p><strong>Open-source applications</strong> often use open-source databases for their data storage requirements. Some customers prefer these databases due to their low cost, community-backed development and support, and large ecosystems of tools and extensions.</p>
+<p><strong>Enterprise applications</strong> support core business processes, such as sales, billing, customer service, and human resources. They also handle line-of-business processes, such as a reservation system at a hotel chain or a risk-management system at an insurance company. These applications need databases that are fast, scalable, secure, available, and reliable. </p>
+<h2 id="Database-types"><a href="#Database-types" class="headerlink" title="Database types"></a>Database types</h2><h3 id="Relational"><a href="#Relational" class="headerlink" title="Relational"></a>Relational</h3><p>Relational databases store data in tables with predefined schemas and relationships between them. These databases are designed to maintain the integrity of the data relationships and help ensure strong data consistency. Relational databases are often referred to as structured query language (SQL) databases. Nonrelational databases, which are often referred to as NoSQL databases, do not use defined schema and table structures to store data.<br><strong>Useful for</strong>: Traditional business applications, enterprise resource planning (ERP), and customer relationship management (CRM) systems<br><strong>AWS services</strong>: Amazon Aurora, Amazon RDS, and Amazon Redshift</p>
+<h3 id="Key-value"><a href="#Key-value" class="headerlink" title="Key-value"></a>Key-value</h3><p>Key-value databases are nonrelational databases that store data as a collection of key-value pairs, in which a key serves as a unique identifier. Both keys and values can be anything, and they range from simple objects to complex compound objects. Key-value databases are highly partitionable and offer horizontal scaling at scales that other types of databases cannot achieve.<br><strong>Useful for</strong>: High-traffic web applications, ecommerce systems, and gaming applications<br><strong>AWS services</strong>: Amazon DynamoDB</p>
+<h3 id="In-memory"><a href="#In-memory" class="headerlink" title="In-memory"></a>In-memory</h3><p>In-memory databases are used for applications that require real-time access to data. By storing data directly in memory, these databases deliver microsecond latency to applications for which millisecond latency is not fast enough.<br><strong>Useful for</strong>: Caching, user session management, gaming leaderboards, and geospatial applications<br><strong>AWS services</strong>: Amazon ElastiCache for Memcached, Amazon ElastiCache for Redis, and Amazon DynamoDB Accelerator</p>
+<h3 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h3><p>A document database is designed to store semistructured data as JavaScript Object Notation (JSON)-like documents. Document databases make it easier for developers to store and query data in a database. They can use the same document-model format that they use in their application code.<br><strong>Useful for</strong>: Content management, catalogs, and user profiles<br><strong>AWS services</strong>: Amazon DocumentDB</p>
+<h3 id="Wide-column"><a href="#Wide-column" class="headerlink" title="Wide column"></a>Wide column</h3><p>A wide column store is a type of NoSQL database that uses tables, rows, and columns. However, unlike a relational database, the names and format of the columns can vary from row to row in the same table.<br><strong>Useful for</strong>: High-scale industrial apps for equipment maintenance, fleet management, and route optimization<br><strong>AWS services</strong>: Amazon Keyspaces</p>
+<h3 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h3><p>Graph databases are for applications that must navigate and query millions of relationships between highly connected graph datasets, with millisecond latency at large scale.<br><strong>Useful for</strong>: Fraud detection, social networking, and recommendation engines<br><strong>AWS services</strong>: Amazon Neptune </p>
+<h3 id="Time-series"><a href="#Time-series" class="headerlink" title="Time-series"></a>Time-series</h3><p>Time-series databases efficiently collect, synthesize, and derive insights from data that changes over time and with queries that span time intervals.<br><strong>Useful for</strong>: Internet of Things (IoT) applications, DevOps, and industrial telemetry<br><strong>AWS services</strong>: Amazon Timestream </p>
+<h3 id="Ledger"><a href="#Ledger" class="headerlink" title="Ledger"></a>Ledger</h3><p>Ledger databases provide a centralized and trusted authority to maintain a scalable, immutable, and cryptographically verifiable record of transactions for an application.<br><strong>Useful for</strong>: Systems of record, supply chain, registrations, and banking transactions<br><strong>AWS services</strong>: Amazon Quantum Ledger Database</p>
+<p><img src="/images/database.png" alt="(Can write a description about the picture)"></p>
+<h2 id="Data-sources"><a href="#Data-sources" class="headerlink" title="Data sources"></a>Data sources</h2><h3 id="Structured"><a href="#Structured" class="headerlink" title="Structured"></a>Structured</h3><p>Structured data is often organized to support transactional and analytical applications. Structured data is most commonly stored in relational databases but can also be stored in non-relational databases. This data source type is valuable because you can gain insight into overarching trends by efficiently running powerful data queries and analyses.</p>
+<p>The following information is an example of structured data:</p>
+<p><img src="/images/structured.jpeg" alt="(Can write a description about the picture)"></p>
+<h3 id="Semi-structured"><a href="#Semi-structured" class="headerlink" title="Semi-structured"></a>Semi-structured</h3><p>Semi-structured data can be as predictable and organized as structured data. The difference is that semi-structured data is flexible and can be updated without the requirement to change the schema for every record in a table. By using semi-structured data, a user can capture any data in any structure as data evolves and changes over time. Semi-structured data is often stored in nonrelational stores.</p>
+<p>Examples of semi-structured data include Extensible Markup Language (XML), email, and JSON, which is shown in the following image:</p>
+<p><img src="/images/unstructured.png" alt="(Can write a description about the picture)"></p>
+<h3 id="Unstructured"><a href="#Unstructured" class="headerlink" title="Unstructured"></a>Unstructured</h3><p>Unstructured data is not organized in any distinguishable or predefined manner. Common stores for unstructured data are nonrelational key-value databases. Unstructured data is full of irrelevant information, which means that data must first be processed to perform any kind of meaningful analysis.</p>
+<p>Examples of data that is considered to be unstructured are text messages, word processing documents, videos, photos, and other images. These files are not organized other than being placed into a file system, an object store, or another repository such as a data lake.</p>
+<p><img src="/images/semi.jpeg" alt="(Can write a description about the picture)"></p>
+<h2 id="Managing-a-database-migration-project"><a href="#Managing-a-database-migration-project" class="headerlink" title="Managing a database migration project"></a>Managing a database migration project</h2><p>You will typically use AWS DMS and AWS SCT as part of an application migration project. These application migration projects are often structured into 12 distinct steps. Not all of the steps apply to every migration project. Your particular use case will dictate which steps apply based on characteristics of your application, database, infrastructure, available resources, and skill sets.</p>
+<p>Twelve-step migration process that uses AWS DMS and AWS SCT consists of envisioning and assessment, database schema conversion, application conversion and remediation, script conversion, integration with third-party applications, data migration, functional testing, performance testing, integration and deployment, training and knowledge transfer, documentation and version control, and post-production support.</p>
+<p><img src="/images/conversion.png" alt="(Can write a description about the picture)"></p>
+<h2 id="Examples-of-database-use-cases"><a href="#Examples-of-database-use-cases" class="headerlink" title="Examples of database use cases"></a>Examples of database use cases</h2><h3 id="Use-case-1-Media-streaming-with-ElastiCache"><a href="#Use-case-1-Media-streaming-with-ElastiCache" class="headerlink" title="Use case 1: Media streaming with ElastiCache"></a>Use case 1: Media streaming with ElastiCache</h3><p>ElastiCache offers a fast, in-memory data store to power live-streaming use cases. Therefore, ElastiCache is a good choice for storing metadata for user profiles and viewing history, authentication information, and tokens for millions of users. It can manifest files to help content delivery networks (CDNs) stream videos to millions of mobile and desktop users at a time.</p>
+<p>In this example architecture, ElastiCache manages the content index and token authentication for an application that uses Amazon S3 and CloudFront to serve media content. The in-memory performance that ElastiCache provides is key to delivering sub-millisecond response times at scale.</p>
+<p><img src="/images/elasticache.png" alt="(Can write a description about the picture)"></p>
+<h3 id="Use-case-2-Gaming-application-with-DynamoDB"><a href="#Use-case-2-Gaming-application-with-DynamoDB" class="headerlink" title="Use case 2: Gaming application with DynamoDB"></a>Use case 2: Gaming application with DynamoDB</h3><p>Use cases such as advertising technology, shopping carts, and Internet of Things (IoT) devices are particularly well suited to the key-value data model of DynamoDB. Companies in the gaming industry also use DynamoDB to support many key aspects of game platforms, including game state, player data, session history, and leaderboards. DynamoDB is a good choice for these tasks because it can automatically scale to millions of concurrent users and requests. At the same time, it is provides consistently low latency that is measured in single-digit milliseconds.</p>
+<p>In the following example architecture, player data for users who are playing the game is stored in DynamoDB. In this way, analytics can be applied to that data to determine player behavior and usage patterns.</p>
+<p><img src="/images/dynamo.png" alt="(Can write a description about the picture)"></p>
+<h3 id="Use-case-3-Profile-management-with-Amazon-DocumentDB"><a href="#Use-case-3-Profile-management-with-Amazon-DocumentDB" class="headerlink" title="Use case 3: Profile management with Amazon DocumentDB"></a>Use case 3: Profile management with Amazon DocumentDB</h3><p>Amazon DocumentDB is a fully managed, highly durable, purpose-built database for JavaScript Object Notation (JSON) data management. Application user profile management that incorporates JSON data for online transactions, user preferences, and user authentication for applications is a good candidate for Amazon DocumentDB. As the number of application users grows, the application user profiles become increasingly complex, as do users’ expectations for the user experience. With the Amazon DocumentDB document data model, you can manage profiles and preferences for millions of users. You can also scale to process millions of user requests per second with millisecond latency.</p>
+<p>The following example architecture shows how user profiles and preferences for an application that is deployed in AWS Elastic Beanstalk are persisted in Amazon DocumentDB. They use the same document model format that is used for the application code. This design helps meet the application needs for scalability, data flexibility, and performance that are related to user profile management.</p>
+<p><img src="/images/document.png" alt="(Can write a description about the picture)"></p>
+<h2 id="Big-Data-Ingestion-and-Transfer"><a href="#Big-Data-Ingestion-and-Transfer" class="headerlink" title="Big Data Ingestion and Transfer"></a>Big Data Ingestion and Transfer</h2><p>Amazon Web Services (AWS) provides big data services and tools that help customers process and analyze their data to provide actionable insights to their organizations. To use these services, organizational data from various sources is typically moved into AWS for processing and analysis. AWS provides a number of services for supporting this data ingestion process. The focus of this module is on the services that customers can used to move on-premises source data into AWS.</p>
+<h3 id="Big-data-pipeline"><a href="#Big-data-pipeline" class="headerlink" title="Big data pipeline"></a>Big data pipeline</h3><p>In the big data pipeline, raw data makes its way through the stages of the pipeline (data ingestion, data storage, data processing, and data visualization) to produce insights about the data.</p>
+<p><img src="/images/pipeline.png" alt="(Can write a description about the picture)"></p>
+<h3 id="Types-of-data-ingestion"><a href="#Types-of-data-ingestion" class="headerlink" title="Types of data ingestion"></a>Types of data ingestion</h3><p>Three types of data ingestion initiate the data pipeline: transactional, file, and stream.</p>
+<p><strong>Transactional</strong>: The ability to quickly store small pieces of data is a key characteristic of transactional data ingestion. This type of data is often initially collected through web and application servers before being stored in databases. For example, it can be stored in databases such as Amazon DynamoDB and Amazon Relational Database Service (Amazon RDS).<br><strong>File</strong>: Data that is transmitted through individual files does not require fast storage and retrieval like transactional data because the data transfer is typically one-way. File-based ingestion can come from a wide variety of sources, such as log data from an AWS service or output from a device. This type of data is typically stored in Amazon Simple Storage Service (Amazon S3) after tools like Apache Flume or Apache Log4j have ingested it.<br><strong>Stream</strong>: Stream data, such as in-game player activity, sensor data, or clickstream logs, requires real-time ingestion capabilities. Initially, these files are often stored in streaming ingestion tools such as Fluentd, Apache Sqoop, or Apache Storm. Next, they are passed to Amazon Kinesis for real-time processing and analysis of the files. If subsequent long-term storage of these files is required, then a low-cost solution such as Amazon S3 is often used.</p>
+<p><img src="/images/ingestion.png" alt="(Can write a description about the picture)"></p>
+<h2 id="Connecting-to-AWS"><a href="#Connecting-to-AWS" class="headerlink" title="Connecting to AWS"></a>Connecting to AWS</h2><p>Two common ways to physically connect on-premises data centers to AWS are by using a virtual private network (VPN) and by using AWS Direct Connect.</p>
+<h3 id="Virtual-private-network"><a href="#Virtual-private-network" class="headerlink" title="Virtual private network"></a>Virtual private network</h3><p>The most common way to connect on-premises data sources to AWS is through an AWS managed, site-to-site virtual private network. AWS Site-to-Site VPN is a fully managed service that creates a secure connection between the customer’s data center and their AWS resources. It does so by using IPsec tunnels over the public internet. Customers can use Site-to-Site VPN with Amazon Virtual Private Cloud (Amazon VPC) to connect their Amazon VPCs in a highly available and secure manner.</p>
+<p>You can use Amazon VPC to provision a private, isolated section of the AWS Cloud through an internet connection. You can launch AWS resources in a virtual network that you define. With Amazon VPC, you can define a virtual network topology that closely resembles a traditional network that you might operate in your own data center. You have control over your virtual networking environment, which includes selecting your own IP address range, creating subnets, and configuring route tables and network gateways. You can easily customize the network configuration for your Amazon VPC. </p>
+<p>For example, you can create a public-facing subnet for your web servers that has access to the internet. You can place your backend systems—such as databases or application servers—in a private-facing subnet with no internet access. In addition, you can use multiple layers of security to help control access to Amazon Elastic Compute Cloud (Amazon EC2) instances in each subnet. These layers of security include security groups and network access control lists (network ACLs).</p>
+<p>You can also create a hardware virtual private network connection between your corporate data center and your VPC. In this way, you use the AWS Cloud as an extension of your corporate data center.</p>
+<p>As soon as the VPN connection to AWS is in place, you can use it to move data into AWS for subsequent big data analysis. It uses services such as Amazon RDS, Amazon Redshift, Amazon EMR, Amazon S3, and Amazon Simple Storage Service Glacier.</p>
+<p><img src="/images/site-to-site.png" alt="(Can write a description about the picture)"></p>
+<h3 id="AWS-Direct-Connect"><a href="#AWS-Direct-Connect" class="headerlink" title="AWS Direct Connect"></a>AWS Direct Connect</h3><p>AWS Direct Connect makes it easy to establish a dedicated network connection between a customer’s on-premises data sources to AWS. Using AWS Direct Connect, customers can establish private connectivity between AWS and their data center, office, or colocation environment, which in many cases can reduce network costs, increase bandwidth throughput, and provide a more consistent network experience than internet-based connections. </p>
+<p>You can use AWS Direct Connect to establish a dedicated network connection between your network and one of the AWS Direct Connect locations. Using open-standard 802.1q VLANs, this dedicated connection can be partitioned into multiple logical connections. </p>
+<p>You can use the connection to access public resources, such as objects that are stored in Amazon S3, by using public IP address space. You can use the same connection to access private resources, such as Amazon EC2 instances that run in a VPC, by using private IP space. At the same time, you maintain network separation between the public and private environments. </p>
+<p>You can reconfigure logical connections at any time to meet your changing needs.</p>
+<p>As soon as an AWS Direct Connect connection is in place, you can use it to move data into AWS for subsequent big data analysis. It uses services such as Amazon RDS, Amazon Redshift, Amazon EMR, Amazon S3, and Amazon S3 Glacier.</p>
+<p><img src="/images/direct.png" alt="(Can write a description about the picture)"></p>
+<p>It is possible to use an AWS managed VPN in conjunction with an AWS Direct Connect connection, as the diagram shows. In this configuration, the VPN provides backup connectivity to AWS in the event that the AWS Direct Connect connection is lost. Typically, cost drives this type of connectivity model because the VPN provides a lower level of reliability than AWS Direct Connect. However, it is a valid and cost-effective connectivity model, and you can use it when cost considerations are the top priority.</p>
+<h2 id="Data-movement-into-AWS"><a href="#Data-movement-into-AWS" class="headerlink" title="Data movement into AWS"></a>Data movement into AWS</h2><p>AWS offers a number of services to facilitate the movement of data into AWS. These services include both online and offline data transfer capabilities for transactional, file, and stream data.</p>
+<h3 id="Amazon-S3-multipart-data-loads"><a href="#Amazon-S3-multipart-data-loads" class="headerlink" title="Amazon S3 multipart data loads"></a>Amazon S3 multipart data loads</h3><p>Moving data into Amazon S3 storage as a staging area for subsequent big data analytics in AWS is a common pattern for many customers. AWS offers the following options for uploading data to Amazon S3 depending on the size of the data that is uploaded: </p>
+<ul>
+<li><p><strong>Upload objects in a single operation</strong>. With a single PUT operation, you can upload objects up to 5 GB in size.</p>
+</li>
+<li><p><strong>Upload objects in parts</strong>. The multipart upload API is designed to improve the upload experience for larger objects into Amazon S3. Using the multipart upload API, you can upload large objects into Amazon S3. These object parts can be uploaded independently, in any order, and in parallel. You can use a multipart upload for objects from 5 MB to 5 TB in size. Multipart upload is recommended for objects larger than 100 MB.</p>
+</li>
+</ul>
+<p>Amazon S3 multipart uploads can be used to transport files over a standard internet connection, a VPN connection, or an AWS Direct Connect connection.</p>
+<p><img src="/images/multi-part.png" alt="(Can write a description about the picture)"></p>
+<h3 id="Batch-data-transfer-services"><a href="#Batch-data-transfer-services" class="headerlink" title="Batch data transfer services"></a>Batch data transfer services</h3><p>In some situations, the volume of customer data that must be moved into AWS for big data analytics is very large. In these cases, throughput constraints might make it impractical to move the data using a standard internet connection, a VPN, or even AWS Direct Connect. In these situations, it is faster to copy the data to a physical storage device and then move that physical storage device to AWS. The data can then be copied into Amazon RDS, Amazon Redshift, Amazon EMR, Amazon S3, or Amazon S3 Glacier for subsequent big data analysis. AWS offers the AWS Snow Family of services (for example, AWS Snowball) for this type of data movement. Another lesson in this module discusses these services in detail.</p>
+<p><img src="/images/snowball.png" alt="(Can write a description about the picture)"></p>
+<h3 id="AWS-DataSync"><a href="#AWS-DataSync" class="headerlink" title="AWS DataSync"></a>AWS DataSync</h3><p>AWS DataSync is an online data transfer service that simplifies, automates, and accelerates moving customer data between on-premises storage systems and AWS storage services. It also moves data between AWS storage services. Common use cases for DataSync include the following:</p>
+<ul>
+<li>Transferring large data sets to AWS for big data analysis and processing</li>
+<li>Moving application data into AWS as part of a cloud migration</li>
+<li>Archiving data to AWS storage services to free up on-premises storage capacity</li>
+<li>Replicating data to AWS storage services for business continuity purposes</li>
+</ul>
+<p>DataSync can copy data between Network File System (NFS) shares, Server Message Block (SMB) shares, self-managed object storage, AWS Snowcone, S3 buckets, Amazon Elastic File System (Amazon EFS) file systems, and Amazon FSx for Windows File Server file systems.</p>
+<p><img src="/images/datasync.jpeg" alt="(Can write a description about the picture)"></p>
+<p>All data that is moved with DataSync is encrypted in transit with Transport Layer Security (TLS). DataSync supports the use of default encryption for Amazon S3 buckets. It supports Amazon EFS file system encryption of data at rest and Amazon FSx for Windows File Server encryption of data at rest and in transit.</p>
+<p>DataSync ensures that data arrives intact. For each transfer, the service performs integrity checks both in transit and at rest. These checks ensure that the data that is written to the destination matches the data that is read from the source, which validates consistency.</p>
+<h3 id="Amazon-S3-Transfer-Acceleration"><a href="#Amazon-S3-Transfer-Acceleration" class="headerlink" title="Amazon S3 Transfer Acceleration"></a>Amazon S3 Transfer Acceleration</h3><p>Amazon S3 Transfer Acceleration is a bucket-level feature that enables fast, easy, and secure transfers of files over long distances between a client and an S3 bucket. Transfer Acceleration takes advantage of the globally distributed edge locations in Amazon CloudFront. As the data arrives at an edge location, the data is routed to Amazon S3 over an optimized network path.</p>
+<p>You might want to use Transfer Acceleration on an Amazon S3 bucket for these reasons:</p>
+<ul>
+<li>Your customers upload to a centralized bucket from all over the world.</li>
+<li>You transfer gigabytes to terabytes of data on a regular basis across continents.</li>
+<li>You can’t use all of your available bandwidth over the internet when uploading to Amazon S3.</li>
+</ul>
+<h3 id="AWS-Storage-Gateway"><a href="#AWS-Storage-Gateway" class="headerlink" title="AWS Storage Gateway"></a>AWS Storage Gateway</h3><p>AWS Storage Gateway is a set of hybrid cloud services that gives you on-premises access to virtually unlimited cloud storage. Customers typically use Storage Gateway to integrate AWS Cloud storage with existing onsite workloads. In this way, they can simplify storage management and reduce costs for key hybrid cloud storage use cases. Sometimes it might be necessary to move data to the cloud for big data analytics capabilities while also caching data locally for low-latency access. In this case, AWS Storage Gateway can be a useful solution.</p>
+<p><img src="/images/storage-gw.jpeg" alt="(Can write a description about the picture)"></p>
+<h2 id="The-AWS-Snow-Family-overview"><a href="#The-AWS-Snow-Family-overview" class="headerlink" title="The AWS Snow Family overview"></a>The AWS Snow Family overview</h2><p>The AWS Snow Family, which comprises AWS Snowcone, AWS Snowball, and AWS Snowmobile, offers several physical devices and capacity points, most with built-in computing capabilities. These services help to physically transport up to exabytes of data into and out of AWS. AWS owns and manages AWS Snow Family devices, which integrate with AWS security, monitoring, storage management, and computing capabilities. </p>
+<h3 id="AWS-Snowcone"><a href="#AWS-Snowcone" class="headerlink" title="AWS Snowcone"></a>AWS Snowcone</h3><p>Snowcone is the smallest member of the AWS Snow Family of edge computing and data transfer devices. Snowcone is portable, rugged, and secure. You can use Snowcone to collect, process, and move data to AWS either offline by shipping the device or online with AWS DataSync. </p>
+<p>The use cases for Snowcone are:</p>
+<ol>
+<li>Bulk data transfer into AWS is either offline by shipping physical devices or online by using Snowcone with AWS DataSync</li>
+<li>Edge computing application can use Snowcone to collect and process data to gain immediate insight and then transfer the data to AWS</li>
+<li>Data is aggregated and processed in edge locations and then transferred to AWS.</li>
+</ol>
+<p><strong>Snowcone features</strong></p>
+<ul>
+<li>All data on Snowcone is always automatically encrypted by using 256-bit keys that you manage through the AWS Key Management Service (AWS KMS). The encryption keys are never stored on the device. This separation helps to ensure that your data stays secure during device transit.</li>
+<li>Snowcone performs best when large files are transferred. Snowcone is not optimized for transferring many smaller files with a size of 5 MB or less. Too much overhead is involved in processing the metadata and encryption. If you intend to copy many files that are smaller than 5 MB, you should batch the small files before copying to a Snowcone device. Use .tar, .zip, or a similar utility.</li>
+</ul>
+<h3 id="AWS-Snowball"><a href="#AWS-Snowball" class="headerlink" title="AWS Snowball"></a>AWS Snowball</h3><p>Snowball is a data migration and edge computing device that comes in two device options: Compute Optimized and Storage Optimized.</p>
+<p>Snowball Edge devices provide virtual CPUs (vCPUs) for compute capacity, and optional graphics processing units (GPUs). This processing capacity is coupled with terabytes of usable block or Amazon S3 compatible object storage. It is well suited for local storage and large-scale data transfer.</p>
+<p>Customers can use these two Snowball options for transferring data to AWS. They can also use these options for performing machine learning and processing by using the built-in compute platform before shipping it back to AWS.</p>
+<p>The following use cases are common for Snowball.</p>
+<ol>
+<li>Cloud Migration </li>
+<li>Disaster Recovery</li>
+<li>Internet of Things (IoT)</li>
+<li>Remote location with simple data’</li>
+<li>Machine learning and analytics </li>
+</ol>
+<p>Other potential use cases for Snowball include capturing IoT sensor streams, on-the-fly media transcoding, image compressions, metrics aggregation, and industrial control signaling and alarming. Essentially, any time that you must move large quantities of data into or out of AWS, Snowball will often be much faster and cost-effective than transferring that data over the internet.</p>
+<h3 id="Snowball-features"><a href="#Snowball-features" class="headerlink" title="Snowball features"></a>Snowball features</h3><ul>
+<li>Snowball includes a ruggedized case that is designed to be both durable and portable. The Snowball appliance weighs less than 50 pounds so that a single person can lift and move it.</li>
+<li>Snowball uses an innovative, E Ink shipping label. This label is designed to ensure that the appliance is automatically sent to the correct AWS facility and also aids in tracking. When data transfer is complete, the Snowball can be tracked by using Amazon Simple Notification Service (Amazon SNS), text messages, and the AWS Management Console.</li>
+<li>A number of factors can affect data transfer speed. These factors include local network speed, file size, and the speed at which your local servers can read data. The end-to-end time to transfer up to 80 TB of data into AWS with Snowball Edge is approximately 1 week. This time includes the usual shipping and handling time in AWS data centers.</li>
+<li>AWS Lambda functions can be hosted locally on Snowball Edge. As data is written to your appliance, Lambda functions can be triggered to act on that data. In the same way as they act in AWS, Lambda functions can call other services, update objects, or make other changes.</li>
+<li>Multiple Snowball Edge Storage Optimized or Snowball Edge Compute Optimized devices can be clustered into a larger, durable storage pool with a single Amazon S3 compatible endpoint.</li>
+<li>The Snowball appliance is equipped with tamper-resistant seals. It includes a built-in Trusted Platform Module (TPM), which uses a dedicated processor designed to detect any unauthorized modifications to the hardware, firmware, or software. AWS inspects every appliance for any signs of tampering and to verify that the TPM did not detect any changes.</li>
+<li>Snowball uses multiple layers of security. They include tamper-resistant enclosures, 256-bit encryption, and an open-standard TPM that is designed to ensure both security and full chain of custody of your data. After the data transfer job is processed and verified, AWS performs a software erasure of the Snowball appliance.</li>
+<li>Snowball Edge is designed with security in mind for the most sensitive data. All data that is written into block volumes is encrypted by keys that you provide through AWS KMS. All volumes are encrypted by using the same keys that were selected during Snowball Edge job creation. The keys are not permanently stored on the device and are erased after loss of power.</li>
+<li>After data transfer, AWS performs a media sanitization of the Snowball appliance, which follows the AWS KMS guidelines.</li>
+</ul>
+<h3 id="AWS-Snowmobile"><a href="#AWS-Snowmobile" class="headerlink" title="AWS Snowmobile"></a>AWS Snowmobile</h3><p>Snowmobile is a secure, exabyte-scale data transfer service that is used to transfer large amounts of data into and out of AWS. Each Snowmobile can transfer up to 100 PB. When a Snowmobile arrives at your site, AWS personnel connect a removable, high-speed network switch from Snowmobile to your local network. Thus, Snowmobile appears as a network-attached data store. When it is connected, the secure, high-speed data transfer begins.</p>
+<p>Snowmobile can transfer data at a rate up to 1 TB/s, which means that you can load 100 PB in a few weeks. Data is automatically compressed as it is copied, and a set of logs is generated with checksums for each file that is transferred. The logs are available to you for verification. You can use them after your data is imported to AWS to confirm that all data has been transferred successfully.</p>
+<p>After your data is transferred to Snowmobile, it is driven back to AWS. The data is loaded into the AWS service that you select, including Amazon S3, Amazon S3 Glacier, or Amazon Redshift.</p>
+<p>The following use cases are common for Snowmobile.</p>
+<ol>
+<li>Data center migrations </li>
+<li>Big data analytics</li>
+</ol>
+<h3 id="Snowmobile-features"><a href="#Snowmobile-features" class="headerlink" title="Snowmobile features"></a>Snowmobile features</h3><ul>
+<li>You can order a truck capacity from 10 PB up to 100 PB. For better efficiency, AWS recommends that you use Snowmobile for workloads over 10 PB.</li>
+<li>Snowmobile is tamper-resistant, waterproof, and temperature-controlled. Multiple layers of security protect the migrated data logically and physically. They include encryption, dedicated security personnel, GPS tracking, alarm monitoring, 24/7 video surveillance, and an escort security vehicle while in transit.</li>
+<li>All data is encrypted with 256-bit encryption keys, which are managed through the AWS KMS. Keys are never sent to or stored on a Snowmobile and are securely erased as soon as power is removed. Snowmobile is operated only by authorized AWS personnel, and physical access to the data container is controlled through secure access.</li>
+<li>The cost of a Snowmobile transfer depends on several variables. Examples include the volume of data to migrate, the amount of time the Snowmobile is at your site, and onsite data center configuration.</li>
+</ul>
+<h2 id="Types-of-data-processing"><a href="#Types-of-data-processing" class="headerlink" title="Types of data processing"></a>Types of data processing</h2><p>The type of processing that you use depends on your business needs. When using batch processing, you gather the data, load it periodically into a database (or another data store), and analyze it hours, days, or weeks later. However, your business might require processing and analyzing your data in real-time. Instead of running database queries over stored data, stream processing applications can process data continuously in real time, even before it is stored. Streaming data can come in at a blistering pace and data volumes can vary up and down at any time. Stream data processing platforms must be able to handle the speed and variability of incoming data and process it as it arrives. Often, they process millions to hundreds of millions of events per hour.</p>
+<p><img src="/images/batch.jpeg" alt="(Can write a description about the picture)"></p>
+<h3 id="Use-cases-for-stream-processing"><a href="#Use-cases-for-stream-processing" class="headerlink" title="Use cases for stream processing"></a>Use cases for stream processing</h3><p>The following examples illustrate the need for stream processing:</p>
+<ul>
+<li>Anomaly detection in logs</li>
+<li>Video streaming applications</li>
+<li>Real-time stock trading applications</li>
+</ul>
+<h2 id="The-Lambda-architecture"><a href="#The-Lambda-architecture" class="headerlink" title="The Lambda architecture"></a>The Lambda architecture</h2><p>The Lambda architecture is a type of architecture that is used for processing large amounts of data. This approach uses batch and streaming processing methods. Batch processing is used to provide comprehensive and accurate views of batch data and stream processing, to provide real-time views of data. Nathan Marz (core developer of Apache Storm) originally promoted Lambda in 2011. The Lambda architecture consists of three layers:</p>
+<ul>
+<li>The batch layer: Precomputes results by using a distributed processing system (for example, Apache Hadoop) that can handle extremely large quantities of data</li>
+<li>The speed layer: Processes data streams in real time and sacrifices throughput to minimize latency by providing real-time views into the most recent data</li>
+<li>The serving layer: Stores output from the batch and speed layers and responds to one-time queries by returning precomputed views or building views from processed data</li>
+</ul>
+<p>This architecture requires separate code bases for batch and streaming layers. These code bases must be maintained and kept in sync so that processed data produces the same results.</p>
+<p>This diagram below shows how Amazon Web Services (AWS) products can be used to recreate a Lambda architecture. In this scenario, Amazon Kinesis Data Firehose is used to ingest data in both the batch and the speed layers. The batch layer consists of an extract, transform, load (ETL) job that AWS Glue performs. It delivers transformed data to an Amazon Simple Storage Service (Amazon S3) bucket. The speed layer consists of an Amazon Kinesis Data Analytics processing job. It uses Kinesis Data Firehose to deliver the processed data to an S3 bucket. The S3 buckets represent the serving layer of the Lambda architecture.</p>
+<p><img src="/images/lambda.png" alt="(Can write a description about the picture)"></p>
+<h2 id="Data-streaming-solutions"><a href="#Data-streaming-solutions" class="headerlink" title="Data streaming solutions"></a>Data streaming solutions</h2><h3 id="Decouple-collection-and-processing"><a href="#Decouple-collection-and-processing" class="headerlink" title="Decouple collection and processing"></a>Decouple collection and processing</h3><p>Streaming storage decouples your collection system (producers) from the processing system (consumers). It provides a persistent buffer for your incoming data. The data can be processed, and you can pump the data at your own rate depending on your needs. Imagine that you want to perform a sentiment analysis on social media messages that are related to your company. You hope to gain insights on how customers perceive your business. You can ingest social messages that match a given hashtag word (for example, the name of your company) for a given period of time. You can store them in an S3 bucket, and later you can process and analyze the tweets.</p>
+<h3 id="Collect-multiple-streams-together"><a href="#Collect-multiple-streams-together" class="headerlink" title="Collect multiple streams together"></a>Collect multiple streams together</h3><p>Different data producers can write their data to the same endpoint. For example, in an Internet of Things (IoT) solution, a million devices can easily write their data into the same endpoint. Imagine that you are an engineer who works on telemetry data from Formula 1 cars. By using all the IoT devices that are placed on the car, you gather data in real time. You can perform analyses on data that comes from all the different sources at the same time.</p>
+<h2 id="Amazon-Kinesis"><a href="#Amazon-Kinesis" class="headerlink" title="Amazon Kinesis"></a>Amazon Kinesis</h2><p>AWS offers a family of solutions to help you build your streaming pipelines. The Amazon Kinesis family makes it easy to collect, process, and analyze real-time, streaming data. In this way, you can get timely insights and react quickly to new information. Kinesis offers key capabilities to cost-effectively process streaming data at any scale. It includes the flexibility to choose the tools that best suit the requirements of your application. With Kinesis, you can ingest real-time data. For example, this data includes video, audio, application logs, website clickstreams, and IoT telemetry data for machine learning, analytics, and other applications. You can use Kinesis to process and analyze data as it arrives and respond instantly. You don’t have to wait until all your data is collected before the processing can begin. </p>
+<p>The Kinesis family consists of four specialized solutions:</p>
+<ul>
+<li><strong>Amazon Kinesis Data Firehose</strong>: A fully managed solution that is used to stream data to a storage location in near-real time. Examples of storage locations include Amazon S3, Amazon Elasticsearch Service (Amazon ES), and Amazon Redshift.</li>
+<li><strong>Amazon Kinesis Data Streams</strong>: A solution to collect and process large streams of data records in real time.</li>
+<li><strong>Amazon Kinesis Data Analytics</strong>: A solution to query streaming data and feed real-time dashboards.</li>
+<li><strong>Amazon Kinesis Video Streams</strong>: A solution that is designed to stream video content.</li>
+</ul>
+<p><img src="/images/kinesis-data.png" alt="(Can write a description about the picture)"></p>
+<h2 id="Kinesis-Data-Firehose"><a href="#Kinesis-Data-Firehose" class="headerlink" title="Kinesis Data Firehose"></a>Kinesis Data Firehose</h2><p>Kinesis Data Firehose is a fully managed service for delivering near-real-time streaming data to destinations such as Amazon S3, Amazon Redshift, and Amazon ES. Other possible destinations include Splunk and any custom HTTP endpoint or endpoints that are owned by supported third-party service providers. For example, these providers include Datadog, Dynatrace, LogicMonitor, MongoDB, New Relic, and Sumo Logic. With Kinesis Data Firehose, you don’t need to write applications or manage resources. You configure your data producers to send data to Kinesis Data Firehose, and it automatically delivers the data to the destination that you specified. Kinesis Data Firehose automatically scales to meet your needs. Kinesis Data Firehose also integrates with Kinesis Data Analytics to process data.</p>
+<h3 id="Delivery-stream"><a href="#Delivery-stream" class="headerlink" title="Delivery stream"></a>Delivery stream</h3><p>The delivery stream is the underlying entity of Kinesis Data Firehose. You use Kinesis Data Firehose by creating a Kinesis Data Firehose delivery stream and then sending data to it.</p>
+<h3 id="Records"><a href="#Records" class="headerlink" title="Records"></a>Records</h3><p>Records are the data of interest that your data producer sends to a Kinesis Data Firehose delivery stream. A record can be as large as 1,000 KB.</p>
+<h3 id="Data-producer"><a href="#Data-producer" class="headerlink" title="Data producer"></a>Data producer</h3><p>Producers send records to Kinesis Data Firehose delivery streams. For example, a web server that sends log data to a delivery stream is a data producer. You can also configure your Kinesis Data Firehose delivery stream to automatically read data from an existing Kinesis data stream and load it into destinations.</p>
+<h3 id="Buffer-size-and-buffer-interval"><a href="#Buffer-size-and-buffer-interval" class="headerlink" title="Buffer size and buffer interval"></a>Buffer size and buffer interval</h3><p>Kinesis Data Firehose buffers incoming streaming data to a certain size or for a certain period of time before delivering it to destinations. Buffer size is in MBs and buffer interval is in seconds.</p>
+<h2 id="Data-transformation-with-Kinesis-Data-Firehose"><a href="#Data-transformation-with-Kinesis-Data-Firehose" class="headerlink" title="Data transformation with Kinesis Data Firehose"></a>Data transformation with Kinesis Data Firehose</h2><p>Kinesis Data Firehose can invoke an AWS Lambda function to transform incoming source data and deliver the transformed data to destinations. To do so, you must enable Kinesis Data Firehose data transformation when you create your delivery stream.</p>
+<p>When you enable Kinesis Data Firehose data transformation, Kinesis Data Firehose buffers incoming data up to 3 MB by default. (To adjust the buffering size, use the ProcessingConfiguration API with the ProcessorParameter, which is called BufferSizeInMBs.) Kinesis Data Firehose then invokes the specified Lambda function asynchronously with each buffered batch by using the Lambda synchronous invocation mode. The transformed data is sent from Lambda to Kinesis Data Firehose. Kinesis Data Firehose then sends it to the destination when the specified destination buffering size or buffering interval is reached, whichever happens first. To facilitate the use of Lambda with Kinesis Data Firehose, AWS provides Lambda blueprints. You can use these blueprints to easily integrate your Lambda functions with Kinesis Data Firehose.</p>
+<p>Your Lambda function invocation could fail because of a network timeout or because you’ve reached the Lambda invocation limit. In that case, Kinesis Data Firehose retries the invocation three times by default. If the invocation does not succeed, Kinesis Data Firehose then skips that batch of records. The skipped records are treated as unsuccessfully processed records.</p>
+<p><img src="/images/kinesis-lambda.png" alt="(Can write a description about the picture)"></p>
+<p>Kinesis Data Firehose supports a Lambda invocation time of up to 5 minutes. If your Lambda function takes more than 5 minutes to complete, you get the following error: Firehose encountered timeout errors when calling Lambda. The maximum supported function timeout is 5 minutes.</p>
+<h2 id="Data-conversion-with-Kinesis-Data-Firehose"><a href="#Data-conversion-with-Kinesis-Data-Firehose" class="headerlink" title="Data conversion with Kinesis Data Firehose"></a>Data conversion with Kinesis Data Firehose</h2><p>Kinesis Data Firehose can convert the format of your input data from JavaScript Object Notation (JSON) into other formats such as Apache Parquet and Apache Optimized Row Columnar (ORC).</p>
+<p>Parquet and ORC are columnar data formats that save space and enable faster queries compared to row-oriented formats such as JSON when used with AWS analytical applications. Columnar storage formats have the following characteristics that make them suitable for use with Athena:</p>
+<ul>
+<li><strong>Compression by column</strong> with compression algorithm selected for the column data type saves storage space in Amazon S3 and reduces disk space and I/O during query processing.</li>
+<li><strong>Predicate pushdown</strong> in Parquet and ORC enables Athena queries to fetch only the blocks it needs, improving query performance. When an Athena query obtains specific column values from your data, it uses statistics from data block predicates, such as max/min values, to determine whether to read or skip the block.</li>
+<li><strong>Splitting of data</strong> in Parquet and ORC allows Athena to split the reading of data to multiple readers and increase parallelism during its query processing.</li>
+</ul>
+<p>To convert your existing raw data from other storage formats to Parquet or ORC, you can run CREATE TABLE AS SELECT (CTAS) queries in Athena and specify a data storage format as Parquet or ORC. This will convert the format before storing the data in Amazon S3. You can also use the AWS Glue Crawler to convert raw data to Parquet or ORC.</p>
+<h2 id="Amazon-Kinesis-Data-Streams"><a href="#Amazon-Kinesis-Data-Streams" class="headerlink" title="Amazon Kinesis Data Streams"></a>Amazon Kinesis Data Streams</h2><p>Kinesis Data Streams is a massively scalable and durable real-time data streaming service. Kinesis Data Streams can continuously capture gigabytes of data per second from hundreds of thousands of sources. Examples of such sources include website clickstreams, database event streams, financial transactions, social media feeds, IT logs, and location-tracking events. The data that is collected is available in milliseconds to enable real-time analytics use cases such as real-time dashboards, real-time anomaly detection, and dynamic pricing. </p>
+<p><strong>How does Kinesis Data Streams work?</strong></p>
+<p>Kinesis Data Streams ingests a large amount of data in real time, durably stores the data, and makes the data available for consumption. The unit of data that Kinesis Data Streams stores is a data record. A data stream represents a group of data records. The data records in a data stream are distributed into shards.</p>
+<p>A shard has a sequence of data records in a stream. When you create a stream, you specify the number of shards for the stream. The total capacity of a stream is the sum of the capacities of its shards. You can increase or decrease the number of shards in a stream as needed. However, you are charged on a per-shard basis. Producers load data into shards, and consumers receive data from shards. Before you create a stream, you must determine an initial size for the stream. After you create the stream, you can dynamically scale your shard capacity up or down by using the AWS Management Console or the UpdateShardCount API. You can make updates while a Kinesis Data Streams application is consuming data from the stream. </p>
+<p>A partition key is used to group data by shard within a stream. Kinesis Data Streams segregates the data records that belong to a stream into multiple shards. It uses the partition key that is associated with each data record to determine which shard a given data record belongs to. </p>
+<p><img src="/images/shard.png" alt="(Can write a description about the picture)"></p>
+<p>In this scenario above, four producers are collecting four data streams, which are then fed into one Kinesis data stream. Each piece of the data has an associated key, in this case a color, that consumers can use to identify the information. When it reaches the Kinesis data stream, all data from producers A and C is distributed across shard A. All data from producers B and D is distributed across shard B. Consumer A has two count jobs running: one to count all red data and one to count all blue data. Because all red and blue data is stored on shard A, the jobs only need to look for data in that shard. They can ignore shard B. Consumer B performs the same jobs on the purple and green data.</p>
+<p>The retention period is the length of time that data records are accessible after they are added to the stream. A stream’s retention period is set to a default of 24 hours after creation. You can increase the retention period up to 8,760 hours (365 days) by using the IncreaseStreamRetentionPeriod operation. You can decrease the retention period down to a minimum of 24 hours by using the DecreaseStreamRetentionPeriod operation. Additional charges apply for streams with a retention period that is set to more than 24 hours. </p>
+<p>Consumers that are called Kinesis Data Streams applications consume records within a shard. A Kinesis Data Streams application is a consumer of a stream that commonly runs on a fleet of EC2 instances. You can develop two types of consumers: shared fan-out consumers and enhanced fan-out consumers. The output of a Kinesis Data Streams application can be input for another stream. In this way, you can create complex topologies that process data in real time. An application can also send data to a variety of other AWS services. One stream can have multiple applications, and each application can consume data from the stream independently and concurrently.</p>
+<p><img src="/images/datastream.png" alt="(Can write a description about the picture)"></p>
+<h2 id="Creating-a-Kinesis-data-stream"><a href="#Creating-a-Kinesis-data-stream" class="headerlink" title="Creating a Kinesis data stream"></a>Creating a Kinesis data stream</h2><h3 id="Determine-the-initial-size-of-a-stream"><a href="#Determine-the-initial-size-of-a-stream" class="headerlink" title="Determine the initial size of a stream"></a>Determine the initial size of a stream</h3><p>A Kinesis data stream consists of multiple shards. Each shard can support up to five read transactions per second up to a maximum total of 2 MB of data that is read per second. Each shard can support up to 1,000 write transactions per second up to a maximum total of 1 MB of data that is written per second. Multiple Kinesis applications can read from a shard. You can dynamically resize your Kinesis data stream or add and remove shards after the stream is created, while a Kinesis application consumes data from the stream. This operation is called resharding.</p>
+<p>To calculate the number of shards (number_of_shards) that your streaming application needs, you need to know the following:</p>
+<ul>
+<li>The average size of the data record that is written to the stream in kilobytes (KB)</li>
+<li>The number of data records that are written to and read from the stream per second</li>
+<li>The number of Kinesis Data Streams applications that consume data concurrently and independently from the stream (that is, the consumers)</li>
+<li>The incoming write bandwidth in KB (incoming_write_bandwidth_in_KiB)</li>
+<li>The outgoing read bandwidth in KB (outgoing_read_bandwidth_in_KiB)</li>
+</ul>
+<p>Then, you apply the following formula:    </p>
+<p>number_of_shards = max(incoming_write_bandwidth_in_KiB/1024, outgoing_read_bandwidth_in_KiB/2048)</p>
+<h2 id="Producers-submit-data-records-to-the-Kinesis-data-stream"><a href="#Producers-submit-data-records-to-the-Kinesis-data-stream" class="headerlink" title="Producers submit data records to the Kinesis data stream"></a>Producers submit data records to the Kinesis data stream</h2><p>You can write records to a Kinesis data stream in three main ways:</p>
+<ul>
+<li><p><strong>Using the Amazon Kinesis Producer Library (KPL)</strong>:The KPL is an easy-to-use, highly configurable library that helps you write to a Kinesis data stream. It acts as an intermediary between your producer application code and the Kinesis Data Streams API actions. The KPL performs the following primary tasks:   </p>
+<ol>
+<li>Writes to one or more Kinesis data streams with an automatic and configurable retry mechanism </li>
+<li>Collects records and uses PutRecords to write multiple records to multiple shards per request </li>
+<li>Aggregates user records to increase payload size and improve throughput</li>
+<li>Integrates seamlessly with the Amazon Kinesis Client Library (KCL) to de-aggregate batched records on the consumer </li>
+<li>Submits Amazon CloudWatch metrics on your behalf to provide visibility into producer performance</li>
+</ol>
+</li>
+<li><p><strong>Using the Kinesis Data Streams API</strong>: To put data into the stream, call the PutRecord operation for the Kinesis service on your Kinesis data stream. Each PutRecord call requires the name of the Kinesis data stream, a partition key, and the data blob to be added to the Kinesis data stream. The partition key is used to determine which shard in the stream the data record is added to. All the data in the shard is sent to the same Kinesis worker that is processing the shard. The PutRecords operation sends multiple records to Kinesis Data Streams in a single request. By using PutRecords, producers can achieve higher throughput when sending data to their Kinesis data stream. Each PutRecords request can support up to 500 records. Each record in the request can be as large as 1 MB, up to a limit of 5 MB for the entire request, including partition keys. PutRecords uses sequence numbers and partition keys. However, the PutRecords parameter SequenceNumberForOrdering is not included in a PutRecords call.</p>
+</li>
+<li><p><strong>Using the Kinesis Agent</strong>: The Kinesis Agent is a stand-alone Java software application that offers an easy way to collect and send data to Kinesis Data Streams. The agent continually monitors a set of files and sends new data to your stream. The agent handles file rotation, checkpointing, and retry upon failures. It delivers all of your data in a reliable, timely, and simple manner. It also emits Amazon CloudWatch metrics to help you better monitor and troubleshoot the streaming process.<br>Although the KPL provides you with a layer of abstraction for ingesting your data and facilitates management, using the Kinesis API gives higher throughput. You must consider your business needs before choosing the appropriate ingestion method.</p>
+</li>
+</ul>
+<h2 id="Strategies-for-resharding"><a href="#Strategies-for-resharding" class="headerlink" title="Strategies for resharding"></a>Strategies for resharding</h2><p>The purpose of resharding in Kinesis Data Streams is to enable your stream to adapt to changes in the rate of data flow. You split shards to increase the capacity (and cost) of your stream. You merge shards to reduce the cost (and capacity) of your stream. </p>
+<p>One approach to resharding could be to split every shard in the stream—which would double the stream’s capacity. However, this technique might provide more capacity than you need and therefore create unnecessary cost. To prevent this problem, you can use metrics to determine which are your hot or cold shards. These are shards that are receiving much more data or much less data than expected. You can then selectively split the hot shards to increase capacity for the hash keys that target those shards. Similarly, you can merge cold shards to make better use of their unused capacity. </p>
+<p>You can obtain some performance data for your stream from the CloudWatch metrics that Kinesis Data Streams publishes. However, you can also collect some of your own metrics for your streams. One approach is to log the hash key values that the partition keys generate for your data records. Recall that you specify the partition key at the time that you add the record to the stream. </p>
+<h2 id="Kinesis-Video-Streams"><a href="#Kinesis-Video-Streams" class="headerlink" title="Kinesis Video Streams"></a>Kinesis Video Streams</h2><p>Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing. Kinesis Video Streams automatically provisions and elastically scales all the infrastructure needed to ingest streaming video data from millions of devices. It durably stores, encrypts, and indexes video data in your streams, and you can use it to access your data through easy-to-use APIs. </p>
+<h3 id="How-Kinesis-Video-Streams-works"><a href="#How-Kinesis-Video-Streams-works" class="headerlink" title="How Kinesis Video Streams works"></a>How Kinesis Video Streams works</h3><p>Kinesis Video Streams provides APIs for creating and managing Kinesis video streams. It also provides APIs for reading and writing media data to a stream, as follows: </p>
+<ul>
+<li><p><strong>Producer API</strong>: Kinesis Video Streams provides a PutMedia API to write media data to a Kinesis video stream. In a PutMedia request, the producer sends a stream of media fragments. A fragment is a self-contained sequence of frames. The frames that belong to a fragment should have no dependency on any frames from other fragments. As fragments arrive, Kinesis Video Streams assigns a unique fragment number, in increasing order. It also stores producer-side and server-side time stamps for each fragment as metadata that is specific to Kinesis Video Streams. </p>
+</li>
+<li><p><strong>Consumer APIs</strong>: Consumers can use the following APIs to get data from a stream: </p>
+<ul>
+<li>GetMedia: When using this API, consumers must identify the starting fragment. The API then returns fragments in the order in which they were added to the stream (in increasing order by fragment number). The media data in the fragments is packed into a structured format such as Matroska (.mkv).</li>
+<li>GetMediaFromFragmentList (and ListFragments): Batch processing applications are considered offline consumers. Offline consumers might choose to explicitly fetch particular media fragments or ranges of video by combining the ListFragments and GetMediaFromFragmentList APIs. ListFragments and GetMediaFromFragmentList enable an application to identify segments of video for a particular time range or fragment range. The application can then fetch those fragments either sequentially or in parallel for processing. This approach is suitable for MapReduce application suites, which must quickly process large amounts of data in parallel.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/api-kinesis.jpeg" alt="(Can write a description about the picture)"></p>
+<h3 id="Integration-with-Amazon-Rekognition-Video"><a href="#Integration-with-Amazon-Rekognition-Video" class="headerlink" title="Integration with Amazon Rekognition Video"></a>Integration with Amazon Rekognition Video</h3><p>Amazon Rekognition Video is a machine learning powered video analysis service. It detects objects, scenes, celebrities, text, activities, and any inappropriate content from your videos stored in Amazon S3. Rekognition Video provides highly accurate facial analysis and facial search capabilities to detect, analyze, and compare faces. It also helps to understand the movement of people in your videos.</p>
+<p>Each result or detection is paired with a timestamp so that you can easily create an index for detailed video search. You can also navigate quickly to an interesting part of the video for further analysis. For objects, faces, text, and people, Amazon Rekognition Video returns bounding box coordinates, which is the specific location of the detection in the frame. Amazon Rekognition Video integrates natively with Kinesis Video Streams to detect and search faces from face data that you provide.</p>
+<h2 id="Amazon-Kinesis-Data-Analytics"><a href="#Amazon-Kinesis-Data-Analytics" class="headerlink" title="Amazon Kinesis Data Analytics"></a>Amazon Kinesis Data Analytics</h2><p>Kinesis Data Analytics is a fully managed service for real-time processing of massive streams of data by using standard SQL. Use standard SQL with some extensions to transform and gain insight from your streaming data. Common scenarios include building business-critical applications like fraud detection, time-series analytics, real-time metrics, and real-time traffic congestion. To get started with Kinesis Data Analytics, you create a Kinesis Data Analytics application that continuously reads and processes streaming data. The service supports ingesting data from Amazon Kinesis Data Streams and Amazon Kinesis Data Firehose streaming sources. Then, you use the interactive editor to author your SQL code and test it with live streaming data. You can also configure destinations where you want Kinesis Data Analytics to send the results. Kinesis Data Analytics supports Kinesis Data Firehose (Amazon S3, Amazon Redshift, Amazon ES, and Splunk), Lambda, and Kinesis Data Streams as destinations. </p>
+<h3 id="Kinesis-Data-Analytics-applications"><a href="#Kinesis-Data-Analytics-applications" class="headerlink" title="Kinesis Data Analytics applications"></a>Kinesis Data Analytics applications</h3><p>Kinesis Data Analytics applications continously read and process streaming data in real time. You use SQL to write application code to process the incoming streaming data and produce output. Then, Kinesis Data Analytics writes the output to a configured destination. The following diagram illustrates a typical application architecture. Notice that you cannot use Kinesis Data Analytics alone to ingest streaming data or to write processed data to its final location. You must combine Kinesis Data Analytics with other Kinesis solutions to ingest data and to send results to a storage location.</p>
+<p><img src="/images/analytics.png" alt="(Can write a description about the picture)"></p>
+<p>When working with streaming data in Kinesis Data Analytics, you must provide the schema that corresponds to your data. However, you might be using complex nested structures in your input data. Then, providing an input schema that describes how records on the streaming input map to an in-application stream can be cumbersome and error prone. Instead, you can use the DiscoverInputSchema API (called the discovery API) to infer a schema. Using random samples of records on the streaming source, the API can infer a schema. The schema includes column names, data types, and position of the data element in the incoming data.</p>
+<h3 id="Integration-with-AWS-Lambda"><a href="#Integration-with-AWS-Lambda" class="headerlink" title="Integration with AWS Lambda"></a>Integration with AWS Lambda</h3><p>If the data in your stream needs format conversion, transformation, enrichment, or filtering, you can preprocess the data by using a Lambda function. You can preprocess it before your application SQL code executes or before your application creates a schema from your data stream. Using a Lambda function for preprocessing records is useful in the following scenarios: </p>
+<ul>
+<li>Transforming records from other formats (such as gzip) into formats that Kinesis Data Analytics can analyze. Kinesis Data Analytics currently supports JSON or comma-separated values (CSV) data formats. </li>
+<li>Expanding data into a format that is more accessible for operations such as aggregation or anomaly detection. For instance, if several data values are stored together in a string, you can expand the data into separate columns. </li>
+<li>Enriching data with other Amazon services via methods such as extrapolation or error correction. </li>
+<li>Applying complex string transformation to record fields.</li>
+<li>Filtering data to clean up the data.</li>
+</ul>
+<h3 id="Amazon-Kinesis-Data-Analytics-with-Apache-Flink"><a href="#Amazon-Kinesis-Data-Analytics-with-Apache-Flink" class="headerlink" title="Amazon Kinesis Data Analytics with Apache Flink"></a>Amazon Kinesis Data Analytics with Apache Flink</h3><p>Apache Flink is an open-source platform for distributed stream and batch data processing. Flink’s core is a streaming dataflow engine that provides data distribution, communication, and fault tolerance for distributed computations over data streams. Flink also builds batch processing on top of the streaming engine, overlaying native iteration support, managed memory, and program optimization.</p>
+<p>With Kinesis Data Analytics for Apache Flink, you can use Java, Scala, or SQL to process and analyze streaming data. You can use the service to author and run code against streaming sources to perform time-series analytics, feed real-time dashboards, and create real-time metrics. Apache Flink is a popular framework and engine for processing data streams. </p>
+<p>Kinesis Data Analytics provides the underlying infrastructure for your Apache Flink applications. It handles core capabilities like provisioning compute resources, parallel computation, automatic scaling, and application backups (implemented as checkpoints and snapshots). Flink has high-level programming features such as operators, functions, sources, and sinks. You can use these features in the same way that you use them when hosting the Flink infrastructure yourself. </p>
+<h2 id="Apache-Hadoop-and-Amazon-EMR"><a href="#Apache-Hadoop-and-Amazon-EMR" class="headerlink" title="Apache Hadoop and Amazon EMR"></a>Apache Hadoop and Amazon EMR</h2><h3 id="Apache-Hadoop"><a href="#Apache-Hadoop" class="headerlink" title="Apache Hadoop"></a>Apache Hadoop</h3><p>Apache Hadoop is an open-source framework that uses a distributed processing architecture, which maps a task to a cluster of commodity servers for processing. Hadoop consists of four main components: </p>
+<ul>
+<li>Hadoop Distributed File System (HDFS)</li>
+<li>MapReduce</li>
+<li>YARN</li>
+<li>Hadoop Common</li>
+</ul>
+<h3 id="Hadoop-Distributed-File-System-HDFS"><a href="#Hadoop-Distributed-File-System-HDFS" class="headerlink" title="Hadoop Distributed File System (HDFS)"></a>Hadoop Distributed File System (HDFS)</h3><p>HDFS is the distributed file system of the Hadoop framework. You can use it to store huge amounts of data for further processing. When storing data, HDFS splits the data into small blocks and stores those blocks across several nodes of the cluster. To avoid losing data if a cluster node fails, HDFS replicates each block several times across different nodes. In this way, HDFS can be fault tolerant. The number of times that a block is replicated is called the replication factor. The cluster NameNode catalogs the metadata about each file that is stored in the HDFS cluster. The cluster DataNodes store the data blocks for each file that has been saved to HDFS.</p>
+<p><img src="/images/hadoop.png" alt="(Can write a description about the picture)"></p>
+<p>This diagram shows that a large data item (the orange block) breaks up into smaller chunks (A, B, and C) and gets stored in HDFS. Then, an HDFS client reads the smaller chunks to retrieve the data. In this example, HDFS is using a replication factor of three to protect the data blocks from DataNode failures.</p>
+<h3 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h3><p>MapReduce is a framework for processing large data sets with a parallel, distributed algorithm on a cluster. This framework is at the core of Hadoop. It provides massive scalability across enormous numbers of Hadoop clusters. It is also designed for fault tolerance, where each worker node periodically reports its status to a master node. Thus, the master node can redistribute work from a cluster that doesn’t respond positively.</p>
+<p>When running a big data job, the process begins as MapReduce splits the job into discrete tasks so that the tasks can run in parallel. Next, the mapper phase maps data to key-value pairs (for example, the number of occurrences of each word on a data block). As soon as the mapper phase is finished, the next step is to shuffle and sort the data. During this step, for example, similar words are shuffled, sorted, and grouped together. The reduce phase counts the number of occurrences of words in the different groups and generates the output file.</p>
+<h3 id="YARN"><a href="#YARN" class="headerlink" title="YARN"></a>YARN</h3><p>YARN is a large-scale, distributed operating system that is used with Hadoop. YARN makes the data that is stored in HDFS accessible for different types of processing. It achieves this result by dynamically coordinating the use of available Hadoop resources to schedule and perform that processing. The following are the primary components of YARN:</p>
+<ul>
+<li><strong>Resource Manager</strong>: Controls the use of the resources within the Hadoop cluster and manages the containers that are launched on each cluster node</li>
+<li><strong>Node Manager</strong>: Controls the use of resources within a single Hadoop cluster node, and monitors the containers that are launched on that cluster node</li>
+<li><strong>Application Master</strong>: Works with the Resource Manager and Node Manager to acquire cluster resources for processing tasks before performing and monitoring those processing tasks </li>
+<li><strong>Containers</strong>: Collections of cluster resources, such as memory and compute, that are allocated from a single cluster node to perform assigned processing activities</li>
+</ul>
+<h3 id="Hadoop-Common"><a href="#Hadoop-Common" class="headerlink" title="Hadoop Common"></a>Hadoop Common</h3><p>Hadoop Common is a collection of libraries and utilities that other modules within the Hadoop framework use. Packages include HDFS, the Hadoop engine, and the necessary Java Archive (JAR) files that are required to run Hadoop.</p>
+<p><img src="/images/hadoop-comparison.png" alt="(Can write a description about the picture)"></p>
+<h3 id="Benefits-of-Hadoop"><a href="#Benefits-of-Hadoop" class="headerlink" title="Benefits of Hadoop"></a>Benefits of Hadoop</h3><p><strong>Handle uncertainty better</strong></p>
+<p>Hadoop facilitates data navigation, discovery, and one-time data analysis. With Hadoop, you can compensate for unexpected occurrences by analyzing large amounts of data quickly to form a response. </p>
+<p><strong>Manage data variety</strong></p>
+<p>Unlike traditional database systems, Hadoop can process structured, unstructured, or semi-structured data, which includes virtually any data format currently available. Hadoop can natively handle many types of data. Examples include Extensible Markup Language (XML), comma-separated values (CSV), text, log files, objects, structured query language (SQL), JavaScript Object Notation (JSON), and binary. In addition, you can use Hadoop to transform data into formats that provide better integration into your existing datasets. You can also store data with or without a schema, and you can perform large-scale extract, transform, load (ETL) to transform your data.</p>
+<p><strong>Provide flexibility</strong></p>
+<p>Because Hadoop is open source, several ecosystem projects are available to help you analyze the multiple types of data that Hadoop can process and analyze. These projects give you tremendous flexibility when you are developing big data solutions. Hadoop’s programming frameworks (Apache Hive, Apache Pig, and others) can support almost any big data use case for your applications.</p>
+<p><strong>Handle volume and velocity</strong></p>
+<p>Because of Hadoop’s distributed architecture, Hadoop clusters can handle tremendous amounts of data. Adding more data processing capability is as simple as adding more servers to your cluster. This model is referred to as linear scaling.</p>
+<h3 id="How-Apache-Hadoop-handles-your-input-data"><a href="#How-Apache-Hadoop-handles-your-input-data" class="headerlink" title="How Apache Hadoop handles your input data"></a>How Apache Hadoop handles your input data</h3><p>Before processing your data, Hadoop splits it into multiple chunks. </p>
+<p>If you’re using HDFS to store your data, Hadoop automatically splits your data when it is stored in the HDFS cluster nodes.</p>
+<p>If you’re using Amazon Simple Storage Service (Amazon S3) to store your data, Hadoop splits the data by reading your files in multiple HTTP range requests whenever a processing job is started. The split size that Hadoop uses to read data from Amazon S3 varies depending on the Amazon EMR version that is being used. (Newer versions have larger split sizes.) The split size is generally the size of an HDFS block when operating on data that is stored in HDFS. Larger numbers provide less task granularity but also put less strain on the cluster NameNode. The default split size is 134,217,728 bytes (128 MB).</p>
+<h3 id="Four-best-practices-for-ingesting-input-data"><a href="#Four-best-practices-for-ingesting-input-data" class="headerlink" title="Four best practices for ingesting input data"></a>Four best practices for ingesting input data</h3><p>You should consider these four best practices when designing for data ingestion for Apache Hadoop and Amazon EMR:</p>
+<ol>
+<li>Split up large aggregated data sets (In situations where files cannot be split (such as .gzip files), limiting each file to less than 2 GB is recommended.)</li>
+<li>Monitor time-based and volume-based aggregations</li>
+<li>Compress data when possible</li>
+<li>Partition data</li>
+<li>Use native copy utilities</li>
+</ol>
+<h2 id="Amazon-EMR"><a href="#Amazon-EMR" class="headerlink" title="Amazon EMR"></a>Amazon EMR</h2><p>Amazon EMR is a managed cluster platform. It simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data. Using these frameworks and related open-source projects, such as Apache Hive and Apache Pig, you can process data for analytics purposes and business intelligence workloads. Additionally, you can use Amazon EMR to transform and move large amounts of data. This data can be moved into and out of other AWS data stores and databases, such as Amazon S3 and Amazon DynamoDB.</p>
+<ul>
+<li>Launch a cluster in minutes</li>
+<li>Deploy multiple clusters</li>
+<li>Resize a running cluster</li>
+<li>Cost-effectively process vast amounts of data</li>
+<li>Use HDFS and Amazon S3 file systems</li>
+<li>Perform automated installation of common big data projects such as Apache Hive, Apache Pig, Apache Hue, Apache Spark, and Apache Oozie</li>
+<li>Run Hadoop, Spark, Apache Presto, and other applications</li>
+</ul>
+<h3 id="Amazon-EMR-infrastructure"><a href="#Amazon-EMR-infrastructure" class="headerlink" title="Amazon EMR infrastructure"></a>Amazon EMR infrastructure</h3><p>Each instance in the Amazon EMR cluster is called a node. Each node has a role within the cluster, referred to as the node type. Amazon EMR also installs different software components on each node type, which gives each node a role in a distributed application such as Apache Hadoop. </p>
+<ul>
+<li><strong>Master node</strong>: A node that manages the cluster by running software components to coordinate the distribution of data and tasks among other nodes for processing. The master node tracks the status of tasks and monitors the health of the cluster. Every cluster has a master node, and it’s possible to create a single-node cluster with only the master node.</li>
+<li><strong>Core nodes</strong>: A node with software components that run tasks and store data in the HDFS on your cluster. Multi-node clusters have at least one core node.</li>
+<li><strong>Task nodes</strong>: A node with software components, which only runs tasks and does not store data in HDFS. Task nodes are optional and can be added at cluster launch or to an already running cluster. Task nodes are used to increase processing capacity when needed and can be terminated when they are no longer needed to reduce costs.</li>
+</ul>
+<h3 id="Processing-data"><a href="#Processing-data" class="headerlink" title="Processing data"></a>Processing data</h3><p>When you launch your Amazon EMR cluster, you choose the frameworks and applications to install for your data processing needs.</p>
+<ul>
+<li><strong>Frameworks</strong>: The data processing framework layer is the engine that is used to process and analyze data. Different frameworks are available for different kinds of processing needs, such as batch, interactive, in-memory, streaming, and others. The framework that you choose depends on your use case. It affects the languages and interfaces available from the application layer, which is used to interact with the data that you want to process. The main processing frameworks available for Amazon EMR are Hadoop MapReduce and Spark.</li>
+<li><strong>Applications</strong>: Amazon EMR supports many applications, such as Hive, Pig, and the Spark Streaming library to provide various capabilities. Using these, you can create processing workloads with higher-level languages, use machine learning algorithms, make stream processing applications, and build data warehouses.</li>
+</ul>
+<p>To process data in your Amazon EMR cluster, you can submit jobs directly to installed applications, or you can run steps in the cluster. To submit a job directly, you interact directly with the software that is installed in your Amazon EMR cluster by connecting to the master node. It connects over a secure connection and accesses the interfaces and tools that are available for the software that runs directly on your cluster. To run step jobs in the cluster, you submit one or more ordered steps to an Amazon EMR cluster. Each step is a unit of work that contains instructions to manipulate data for processing by software that is installed on the cluster.</p>
+<h3 id="General-benefits-of-Amazon-EMR"><a href="#General-benefits-of-Amazon-EMR" class="headerlink" title="General benefits of Amazon EMR"></a>General benefits of Amazon EMR</h3><p><strong>Easy to use</strong></p>
+<p>You can launch an Amazon EMR cluster in minutes. You don’t need to worry about node provisioning, cluster setup, Hadoop configuration, or cluster tuning. Amazon EMR takes care of these tasks so that you can focus on analysis.</p>
+<ul>
+<li>You can configure and launch clusters in minutes.</li>
+<li>You don’t have to provision nodes, set up clusters, configure Hadoop, or tune clusters.</li>
+<li>You can focus on analysis, not cluster provisioning.</li>
+</ul>
+<p><strong>Low cost</strong></p>
+<p>Amazon EMR pricing is simple and predictable. You pay an hourly rate for every instance hour that you use. You can further reduce costs by using Amazon EC2 Spot and Reserved Instances. </p>
+<ul>
+<li>You have no hardware investment.</li>
+<li>You pay only for the resources that you actually use. After processing is complete, terminate your clusters and stop paying.</li>
+<li>When using Amazon S3 or other similar detached storage solutions, you pay only for the storage that you use.</li>
+<li>Amazon EMR task nodes are particularly well suited for use with Amazon EC2 Spot Instances.</li>
+</ul>
+<p><strong>Elastic</strong></p>
+<p>With Amazon EMR, you can provision one, hundreds, or thousands of compute instances to process data at any scale. You can easily increase or decrease the number of instances, and you pay only for what you use.</p>
+<ul>
+<li>Provision one, hundreds, or thousands of computer instances.</li>
+<li>Process data at any scale.</li>
+<li>Change your cluster size dynamically to respond to increased workloads.</li>
+<li>Storage capacity can be scaled in and out based on need.</li>
+</ul>
+<p><strong>Secure</strong></p>
+<p>Amazon EMR automatically configures Amazon EC2 firewall settings that control network access to instances. You can launch clusters in a virtual private cloud (VPC), which is a logically isolated network that you define. For objects that are stored in Amazon S3, you can use Amazon S3 server-side encryption or Amazon S3 client-side encryption with EMR File System (EMRFS). You also can use AWS Key Management Service (AWS KMS), customer managed keys, or custom keys.</p>
+<p><img src="/images/emr-firewall.png" alt="(Can write a description about the picture)"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/aws/" rel="tag"><i class="fa fa-tag"></i> AWS</a>
+              <a href="/tags/AWS-SAA/" rel="tag"><i class="fa fa-tag"></i> AWS SAA</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/09/07/aws-saa-pro/" rel="prev" title="AWS Solutions Architect Professional">
+                  <i class="fa fa-chevron-left"></i> AWS Solutions Architect Professional
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fab fa-aws"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sylvester Runesu Dzimiri</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">129k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:57</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

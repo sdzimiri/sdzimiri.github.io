@@ -20,16 +20,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"sylvesterdzimiri.com","root":"/","images":"/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":120},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Introduction (S3)Amazon Simple Storage Service (Amazon S3) is storage for the Internet. It is designed to make web-scale computing easier. Amazon S3 has a simple web services interface that you can us">
+<meta name="description" content="Introduction (S3)AAmazon S3 is a scalable, durable, highly available, and cost-effective storage service for objects. Amazon S3 has a simple web services interface. You can use this interface to store">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AWS S3">
 <meta property="og:url" content="https://sylvesterdzimiri.com/2021/08/03/aws-s3/index.html">
 <meta property="og:site_name" content="Sylvesters Blog">
-<meta property="og:description" content="Introduction (S3)Amazon Simple Storage Service (Amazon S3) is storage for the Internet. It is designed to make web-scale computing easier. Amazon S3 has a simple web services interface that you can us">
+<meta property="og:description" content="Introduction (S3)AAmazon S3 is a scalable, durable, highly available, and cost-effective storage service for objects. Amazon S3 has a simple web services interface. You can use this interface to store">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://sylvesterdzimiri.com/images/upload-process.png">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/emrfs.png">
 <meta property="article:published_time" content="2021-08-03T05:05:06.000Z">
-<meta property="article:modified_time" content="2021-08-17T01:32:15.636Z">
+<meta property="article:modified_time" content="2021-09-15T01:27:15.821Z">
 <meta property="article:author" content="Sylvester Runesu Dzimiri">
 <meta property="article:tag" content="AWS">
 <meta property="article:tag" content="AWS SAA">
@@ -150,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-S3"><span class="nav-number">1.</span> <span class="nav-text">Introduction (S3)</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-S3"><span class="nav-number">1.</span> <span class="nav-text">Introduction (S3)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-lakes"><span class="nav-number">2.</span> <span class="nav-text">Data lakes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AWS-Lake-Formation"><span class="nav-number">3.</span> <span class="nav-text">AWS Lake Formation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Storage-solutions-with-Amazon-EMR"><span class="nav-number">4.</span> <span class="nav-text">Storage solutions with Amazon EMR</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop-Distributed-File-System-HDFS"><span class="nav-number">4.1.</span> <span class="nav-text">Hadoop Distributed File System (HDFS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EMR-File-System-EMRFS"><span class="nav-number">4.2.</span> <span class="nav-text">EMR File System (EMRFS)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Storage-for-data-warehousing"><span class="nav-number">5.</span> <span class="nav-text">Storage for data warehousing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Amazon-Redshift"><span class="nav-number">5.1.</span> <span class="nav-text">Amazon Redshift</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Storage-with-Amazon-Redshift"><span class="nav-number">5.2.</span> <span class="nav-text">Storage with Amazon Redshift</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -166,18 +167,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -272,7 +273,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-16 20:32:15" itemprop="dateModified" datetime="2021-08-16T20:32:15-05:00">2021-08-16</time>
+        <time title="Modified: 2021-09-14 20:27:15" itemprop="dateModified" datetime="2021-09-14T20:27:15-05:00">2021-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -299,14 +300,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>873</span>
+      <span>8.8k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>8 mins.</span>
     </span>
 </div>
 
@@ -317,13 +318,43 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="Introduction-S3"><a href="#Introduction-S3" class="headerlink" title="Introduction (S3)"></a>Introduction (S3)</h3><p>Amazon Simple Storage Service (Amazon S3) is storage for the Internet. It is designed to make web-scale computing easier.</p>
-<p>Amazon S3 has a simple web services interface that you can use to store and retrieve any amount of data, at any time, from anywhere on the web. It gives any developer access to the same highly scalable, reliable, fast, and inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites. </p>
+        <h2 id="Introduction-S3"><a href="#Introduction-S3" class="headerlink" title="Introduction (S3)"></a>Introduction (S3)</h2><p>AAmazon S3 is a scalable, durable, highly available, and cost-effective storage service for objects. Amazon S3 has a simple web services interface. You can use this interface to store and retrieve any amount of data, at any time, from anywhere on the web. It gives any developer access to the same data storage infrastructure that Amazon uses to run its own global network of websites. This data storage is highly scalable, reliable, fast, and inexpensive. The service aims to maximize benefits of scale and to pass those benefits on to developers. </p>
+<p>Using Amazon S3, objects are stored in repositories that are called buckets. The maximum size of a single object that is stored in Amazon S3 is 5 TB. The maximum size of a PUT request is 5 GB. </p>
+<p>A key is the unique identifier for an object within a bucket. Every object in a bucket has exactly one key. The combination of a bucket, key, and version ID uniquely identifies each object. You can think of Amazon S3 as a basic data map between bucket + key + version and the object itself.</p>
 <span id="more"></span>
 
 <p>In Amazon S3, all objects are private by default. Only the object owner has permission to access these objects. However, the object owner can optionally share objects with others by creating a pre-signed URL, using their own security credentials, to grant time-limited permission to download objects.</p>
 <p>When you create a pre-signed URL for your object, you must provide your security credentials, specify a bucket name, an object key, specify the HTTP method (GET to download the object) and experation date and time. The pre-signed URLs are valid only for the specified duration.</p>
 <p><img src="/images/upload-process.png" alt="(Can write a description about the picture)"></p>
+<p><strong>Amazon S3 data consistency model</strong>: Amazon S3 provides strong read-after-write consistency for PUTs and DELETEs of objects in your Amazon S3 bucket in all AWS Regions. This consistency applies to both writes to new objects and PUTs that overwrite existing objects and DELETEs. In addition, read operations on S3 Select, S3 access control lists, S3 object tags, and object metadata (for example, HEAD object) are strongly consistent. Updates to a single key are atomic. For example, you might PUT to an existing key from one thread and perform a GET on the same key from a second thread concurrently. The GET operation will return either the old data or the new data but never partial or corrupt data. Amazon S3 achieves high availability by replicating data across multiple servers within AWS data centers. If a PUT request is successful, your data is safely stored. Any read (GET or LIST) that is initiated following the receipt of a successful PUT response returns the data that was written by the PUT.</p>
+<p><strong>Multipart upload for big data</strong>: You can use multipart upload to upload a single object as a set of parts. Each part is a contiguous portion of the object’s data. You can upload these object parts independently and in any order. If transmission of any part fails, you can retransmit that part without affecting other parts. After all parts of your object are uploaded, Amazon S3 assembles these parts and creates the object. In general, when your object size reaches 100 MB, you should consider using multipart uploads instead of uploading the object in a single operation. Using multipart upload provides the following advantages:</p>
+<ul>
+<li>Improved throughput: You can upload parts in parallel to improve throughput. </li>
+<li>Quickly recover from any network issues: Smaller part size minimizes the impact of restarting a failed upload due to a network error. </li>
+<li>Pause and resume object uploads: You can upload object parts over time. After you initiate a multipart upload, it has no expiry; you must explicitly complete or stop the multipart upload. </li>
+<li>Begin an upload before you know the final object size: You can upload an object while you are creating it. </li>
+</ul>
+<p>AWS recommends that you use multipart upload in the following ways:</p>
+<ul>
+<li>If you’re uploading large objects over a stable high-bandwidth network, use multipart upload to maximize the use of your available bandwidth. This technique uploads object parts in parallel for multithreaded performance. </li>
+<li>If you’re uploading over a spotty network, use multipart upload to increase resiliency to network errors by avoiding upload restarts. When using multipart upload, you need to retry uploading only parts that are interrupted during the upload. You don’t need to restart uploading your object from the beginning. </li>
+</ul>
+<p><strong>Using S3 Versioning</strong>: Amazon S3 offers a means of keeping multiple variants of an object in the same bucket. You can use the S3 Versioning feature to preserve, retrieve, and restore every version of every object that is stored in your buckets. With versioning, you can recover more easily from both unintended user actions and application failures. After versioning is enabled for a bucket, if Amazon S3 receives multiple write requests for the same object simultaneously, it stores all of those objects. When working with S3 Versioning in S3 buckets, you can optionally add another layer of security. You can configure a bucket to enable multi-factor authentication (MFA) delete. When you do this, the bucket owner must include two forms of authentication in any request to delete a version or change the versioning state of the bucket.</p>
+<h2 id="Data-lakes"><a href="#Data-lakes" class="headerlink" title="Data lakes"></a>Data lakes</h2><p>A data lake is a centralized repository where you store data that comes from different sources in a single place for further analysis. In this storage location, data is not processed, and you can store all types of data, both structured and not structured. This arrangement helps data engineers or data scientist to launch analysis jobs from a single location.</p>
+<h2 id="AWS-Lake-Formation"><a href="#AWS-Lake-Formation" class="headerlink" title="AWS Lake Formation"></a>AWS Lake Formation</h2><p>AWS Lake Formation is a fully managed service that makes it easier for you to build, secure, and manage data lakes. AWS Lake Formation simplifies and automates many of the complex manual steps that are usually required to create data lakes. These steps include collecting, cleansing, moving, and cataloging data, and securely making that data available for analytics and machine learning. You point AWS Lake Formation at your data sources, and AWS Lake Formation crawls those sources and moves the data into your new Amazon S3 data lake.</p>
+<h2 id="Storage-solutions-with-Amazon-EMR"><a href="#Storage-solutions-with-Amazon-EMR" class="headerlink" title="Storage solutions with Amazon EMR"></a>Storage solutions with Amazon EMR</h2><h3 id="Hadoop-Distributed-File-System-HDFS"><a href="#Hadoop-Distributed-File-System-HDFS" class="headerlink" title="Hadoop Distributed File System (HDFS)"></a>Hadoop Distributed File System (HDFS)</h3><p>When using Amazon EMR, you use the power of distributed file systems. The distributed file system of the Apache Hadoop suit is called Hadoop Distributed File System (HDFS). HDFS distributes the data that it stores across instances in the cluster. It stores multiple copies of data on different instances to ensure that no data is lost if an individual instance fails. HDFS is ephemeral storage that is reclaimed when you terminate a cluster. HDFS is useful for caching intermediate results during MapReduce processing or for workloads that have significant random I/O.</p>
+<p>If you need persistent storage, you should choose the Amazon EMR file system instead of HDFS.</p>
+<h3 id="EMR-File-System-EMRFS"><a href="#EMR-File-System-EMRFS" class="headerlink" title="EMR File System (EMRFS)"></a>EMR File System (EMRFS)</h3><p>Amazon EMR extends Hadoop by using the EMR File System (EMRFS). EMRFS adds the ability to directly access data that is stored in Amazon S3 as if it were a file system like HDFS. You can use either HDFS or Amazon S3 as the file system in your cluster. Most often, Amazon S3 is used to store input and output data, and intermediate results are stored in HDFS. Data encryption enables you to encrypt objects that EMRFS writes to Amazon S3 and enables EMRFS to work with encrypted objects in Amazon S3.</p>
+<p><img src="/images/emrfs.png" alt="(Can write a description about the picture)"></p>
+<h2 id="Storage-for-data-warehousing"><a href="#Storage-for-data-warehousing" class="headerlink" title="Storage for data warehousing"></a>Storage for data warehousing</h2><p>After you create a data lake and cleanse the data, you might want to store it in a centralized location from which you can perform data analytics. With big data, you need a storage location that can handle fast analytics performance while storing very large amounts of data. The data warehousing solution that AWS offers is called Amazon Redshift.</p>
+<h3 id="Amazon-Redshift"><a href="#Amazon-Redshift" class="headerlink" title="Amazon Redshift"></a>Amazon Redshift</h3><p>Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. You can start with just a few hundred gigabytes of data and scale to a petabyte or more. Thus, you can use your data to acquire new insights for your business and customers.</p>
+<h3 id="Storage-with-Amazon-Redshift"><a href="#Storage-with-Amazon-Redshift" class="headerlink" title="Storage with Amazon Redshift"></a>Storage with Amazon Redshift</h3><p>Amazon Redshift creates one database when you provision a cluster. This database is the one that you use to load data and run queries on your data. You can create additional databases as needed by running a SQL command.</p>
+<p>When you create a cluster, you configure the number of nodes that it will have. There are three node families. Each family offers different storage types.</p>
+<ul>
+<li><strong>The DS family</strong>: You can use DS nodes to create large data warehouses by using hard disk drives (HDDs), and AWS recommends that you use RA nodes instead. These node types are available in different sizes. The node size and the number of nodes determine the total storage for a cluster.</li>
+<li><strong>The DC family</strong>: You can use DC nodes to have compute-intensive data warehouses with local solid state drive (SSD) storage included. You choose the number of nodes that you need based on data size and performance requirements. DC nodes store your data locally for high performance. As the data size grows, you can add more compute nodes to increase the storage capacity of the cluster. For datasets under 1 TB (compressed), AWS recommends DC node types for the best performance at the lowest price. If you expect your data to grow, AWS recommends RA nodes so that you can size compute and storage independently to achieve improved price and performance. You launch clusters that use the DC node types in a virtual private cloud (VPC). You can’t launch DC clusters in EC2 Classic.</li>
+<li><strong>The RA family</strong>: You can use RA nodes with managed storage to optimize your data warehouse by scaling and paying for compute and managed storage independently. With RA, you choose the number of nodes based on your performance requirements, and you only pay for the managed storage that you use. Size your RA cluster based on the amount of data that you process daily. Amazon Redshift managed storage uses large, high-performance SSDs in each RA node for fast local storage, and it uses Amazon S3 for longer-term durable storage. If the data in a node grows beyond the size of large local SSDs, Amazon Redshift managed storage automatically offloads that data to Amazon S3. You pay the same low rate for Amazon Redshift managed storage regardless of whether the data sits in high-performance SSDs or in Amazon S3. For workloads that require ever-growing storage, you can use managed storage to automatically scale your data warehouse storage capacity without adding and paying for additional nodes.</li>
+</ul>
 
     </div>
 
@@ -380,13 +411,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">55k</span>
+    <span title="Symbols count total">129k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">50 mins.</span>
+    <span title="Reading time total">1:57</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>

@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://sylvesterdzimiri.com/images/efs.png">
 <meta property="og:image" content="https://sylvesterdzimiri.com/images/efs-2.png">
 <meta property="article:published_time" content="2021-08-17T01:25:58.000Z">
-<meta property="article:modified_time" content="2021-08-17T02:16:27.000Z">
+<meta property="article:modified_time" content="2021-09-15T01:15:42.029Z">
 <meta property="article:author" content="Sylvester Runesu Dzimiri">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://sylvesterdzimiri.com/images/efs.png">
@@ -165,18 +165,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -263,10 +263,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-08-16 20:25:58 / Modified: 21:16:27" itemprop="dateCreated datePublished" datetime="2021-08-16T20:25:58-05:00">2021-08-16</time>
+      <time title="Created: 2021-08-16 20:25:58" itemprop="dateCreated datePublished" datetime="2021-08-16T20:25:58-05:00">2021-08-16</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-14 20:15:42" itemprop="dateModified" datetime="2021-09-14T20:15:42-05:00">2021-09-14</time>
+      </span>
 
   
     <span class="post-meta-break"></span>
@@ -275,14 +281,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>5.3k</span>
+      <span>6.2k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>5 mins.</span>
+      <span>6 mins.</span>
     </span>
 </div>
 
@@ -294,7 +300,8 @@
     
     <div class="post-body" itemprop="articleBody">
         <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>The Amazon EFS and Amazon FSx services provide easily deployable file systems for use with Linux and Windows instances.</p>
-<h2 id="Amazon-EFS"><a href="#Amazon-EFS" class="headerlink" title="Amazon EFS"></a>Amazon EFS</h2><p>Amazon EFS is based on the Network File System (NFS) protocol that Linux-based systems use. Amazon EFS provides a simple, serverless, set-and-forget, elastic file system that allows you to share file data without provisioning or managing storage. It can be used with AWS Cloud services and on-premises resources and is built to scale on demand to petabytes without disrupting applications. Using Amazon EFS, you can grow or shrink your file systems automatically as needed, eliminating the need to provision and manage capacity to accommodate growth.</p>
+<h2 id="Amazon-EFS"><a href="#Amazon-EFS" class="headerlink" title="Amazon EFS"></a>Amazon EFS</h2><p>Amazon EFS is based on the Network File System (NFS) protocol that Linux-based systems use. Amazon EFS provides a simple, serverless, set-and-forget, elastic file system that allows you to share file data without provisioning or managing storage. It can be used with AWS Cloud services and on-premises resources and is built to scale on demand to petabytes without disrupting applications. Using Amazon EFS, you can grow or shrink your file systems automatically as needed, eliminating the need to provision and manage capacity to accommodate growth. Amazon EFS supports the Network File System version 4 (NFSv4.1 and NFSv4.0) protocol. Therefore, the applications and tools that you use today work seamlessly with Amazon EFS. Multiple compute instances, including Amazon Elastic Compute Cloud (Amazon EC2), Amazon Elastic Container Service (Amazon ECS), and AWS Lambda, can access an Amazon EFS file system at the same time. This arrangement provides a common data source for workloads and applications that are running on more than one compute instance or server.</p>
+<p>With Amazon EFS, you pay only for the storage that your file system uses, with no minimum fee or setup cost. Amazon EFS offers a range of storage classes that are designed for different use cases.</p>
 <span id="more"></span>
 
 <h2 id="Amazon-EFS-storage-classes"><a href="#Amazon-EFS-storage-classes" class="headerlink" title="Amazon EFS storage classes"></a>Amazon EFS storage classes</h2><p>With Amazon EFS, you pay for only the storage that your file system uses, and there is no minimum fee or setup cost. Amazon EFS offers a range of storage classes designed for different use cases. These storage classes include the following:</p>
@@ -316,10 +323,18 @@
 <p>The Max I/O performance mode is optimized for applications where a lot of EC2 instances are accessing the file system. With this mode, file systems scale to higher levels of aggregate throughput and operations per second with a trade-off of slightly higher latencies for file operations. This mode allows Amazon EFS to burst at high throughput levels for short periods of time while delivering low levels of throughput the rest of the time meeting needs for spiky workloads. </p>
 <p>A credit system determines when an Amazon EFS file system can burst. Over time, each file system earns burst credits at a baseline rate, which is determined by the size of the file system. The file system uses these credits whenever it reads or writes data. A file system can drive throughput continuously at its baseline rate. It accumulates credits during periods of inactivity or when throughput is below its baseline rate. These accumulated burst credits allow a file system to drive throughput above its baseline rate. The file system can continue to drive throughput above its baseline rate as long as it has a positive burst credit balance.</p>
 <h2 id="Amazon-FSx"><a href="#Amazon-FSx" class="headerlink" title="Amazon FSx"></a>Amazon FSx</h2><p>Amazon FSx provides fully managed third-party file systems with the native compatibility and feature sets for workloads such as Microsoft Windows–based storage, high-performance computing, machine learning, and electronic design automation. Amazon FSx supports two file system types: Lustre and Windows File Server.</p>
-<h2 id="Amazon-FSx-for-Windows-File-Server"><a href="#Amazon-FSx-for-Windows-File-Server" class="headerlink" title="Amazon FSx for Windows File Server"></a>Amazon FSx for Windows File Server</h2><p>FSx for Windows File Server uses the Server Message Block (SMB) protocol to deliver fully managed, native file systems for Microsoft Windows file servers. FSx for Windows File Server has the features, performance, and compatibility to easily lift and shift enterprise applications to the AWS Cloud. FSx for Windows File Server delivers a wide range of administrative features, such as data deduplication, end-user file restore, and Microsoft Active Directory (AD) integration. It offers Single-AZ and Multi-AZ deployment options, fully managed backups, and encryption of data at rest and in transit.</p>
+<h2 id="Amazon-FSx-for-Windows-File-Server"><a href="#Amazon-FSx-for-Windows-File-Server" class="headerlink" title="Amazon FSx for Windows File Server"></a>Amazon FSx for Windows File Server</h2><p>Provides fully managed Microsoft Windows file servers, backed by a fully native Windows file system. Amazon FSx for Windows File Server has the features, performance, and compatibility to easily lift and shift enterprise applications to the AWS Cloud. As a fully managed service, Amazon FSx for Windows File Server eliminates the administrative overhead of setting up and provisioning file servers and storage volumes. Additionally, Amazon FSx keeps Windows software up to date, detects and addresses hardware failures, and performs backups. It also provides rich integration with other AWS services such as the following: </p>
+<ul>
+<li>AWS Identity and Access Management (IAM)</li>
+<li>AWS Directory Service for Microsoft Active Directory</li>
+<li>Amazon WorkSpaces</li>
+<li>AWS Key Management Service (AWS KMS)</li>
+<li>AWS CloudTrail</li>
+</ul>
 <h2 id="Amazon-FSx-for-Lustre"><a href="#Amazon-FSx-for-Lustre" class="headerlink" title="Amazon FSx for Lustre"></a>Amazon FSx for Lustre</h2><p>FSx for Lustre makes it easy and cost effective to launch and run the popular, high-performance Lustre file system. You use Lustre for workloads where speed matters, such as machine learning, high performance computing (HPC), video processing, and financial modeling.</p>
 <p>With FSx for Lustre, you can choose between two deployment types—scratch and persistent file systems—to accommodate different data processing needs. Scratch file systems are ideal for temporary storage and shorter-term processing of data. Data is not replicated and does not persist if a file server fails. Persistent file systems are ideal for longer-term storage and workloads. In persistent file systems, data is replicated, and file servers are replaced if they fail.</p>
 <p>FSx for Lustre is also flexible because it allows you to choose between HDD and SSD storage options depending on your needs.</p>
+<p>Both Amazon EFS and Amazon FSx for Lustre can be used to serve Amazon Simple Storage Service (Amazon S3). This can accelerate machine learning training jobs whose data sets are stored in Amazon S3.</p>
 
     </div>
 
@@ -372,13 +387,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">55k</span>
+    <span title="Symbols count total">129k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">50 mins.</span>
+    <span title="Reading time total">1:57</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
