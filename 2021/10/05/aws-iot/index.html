@@ -20,32 +20,29 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"sylvesterdzimiri.com","root":"/","images":"/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":120},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="IntroductionAWS Trusted Advisor is an online tool that provides you real time guidance to help you provision your resources following AWS best practices. Trusted Advisor checks help optimize your AWS">
+<meta name="description" content="APIAn application programming interface (API) defines how software components will interact with one another. SDKA software development kit (SDK) is a collection of resources used to help developers e">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AWS Trusted Advisor">
-<meta property="og:url" content="https://sylvesterdzimiri.com/2021/08/01/aws-trusted-advisor/index.html">
+<meta property="og:title" content="AWS IOT">
+<meta property="og:url" content="https://sylvesterdzimiri.com/2021/10/05/aws-iot/index.html">
 <meta property="og:site_name" content="Sylvesters Blog">
-<meta property="og:description" content="IntroductionAWS Trusted Advisor is an online tool that provides you real time guidance to help you provision your resources following AWS best practices. Trusted Advisor checks help optimize your AWS">
+<meta property="og:description" content="APIAn application programming interface (API) defines how software components will interact with one another. SDKA software development kit (SDK) is a collection of resources used to help developers e">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://sylvesterdzimiri.com/images/aws-trusted-advisor.png">
-<meta property="og:image" content="https://sylvesterdzimiri.com/images/aws-trusted.png">
-<meta property="article:published_time" content="2021-08-01T05:26:02.000Z">
-<meta property="article:modified_time" content="2021-08-02T20:59:39.150Z">
+<meta property="article:published_time" content="2021-10-05T14:13:25.000Z">
+<meta property="article:modified_time" content="2021-10-05T14:24:04.841Z">
 <meta property="article:author" content="Sylvester Runesu Dzimiri">
 <meta property="article:tag" content="AWS">
 <meta property="article:tag" content="AWS SAA">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://sylvesterdzimiri.com/images/aws-trusted-advisor.png">
 
 
-<link rel="canonical" href="https://sylvesterdzimiri.com/2021/08/01/aws-trusted-advisor/">
+<link rel="canonical" href="https://sylvesterdzimiri.com/2021/10/05/aws-iot/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sylvesterdzimiri.com/2021/08/01/aws-trusted-advisor/","path":"2021/08/01/aws-trusted-advisor/","title":"AWS Trusted Advisor"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sylvesterdzimiri.com/2021/10/05/aws-iot/","path":"2021/10/05/aws-iot/","title":"AWS IOT"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>AWS Trusted Advisor | Sylvesters Blog</title>
+<title>AWS IOT | Sylvesters Blog</title>
   
 
 
@@ -151,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-number">1.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SDK"><span class="nav-number">2.</span> <span class="nav-text">SDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AWS-CLI"><span class="nav-number">3.</span> <span class="nav-text">AWS CLI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Signature-Version-4"><span class="nav-number">4.</span> <span class="nav-text">Signature Version 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Device-Gateway"><span class="nav-number">5.</span> <span class="nav-text">Device Gateway</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rules-Engine"><span class="nav-number">6.</span> <span class="nav-text">Rules Engine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AWS-IoT-Rules"><span class="nav-number">7.</span> <span class="nav-text">AWS IoT Rules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#X-509-Certificates"><span class="nav-number">8.</span> <span class="nav-text">X.509 Certificates</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AWS-IoT-Policy"><span class="nav-number">9.</span> <span class="nav-text">AWS IoT Policy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thing-Device-Shadow"><span class="nav-number">10.</span> <span class="nav-text">Thing (Device) Shadow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thing-Device-Registry"><span class="nav-number">11.</span> <span class="nav-text">Thing (Device) Registry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MQTT"><span class="nav-number">12.</span> <span class="nav-text">MQTT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebSockets"><span class="nav-number">13.</span> <span class="nav-text">WebSockets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MQTT-Client-ID"><span class="nav-number">14.</span> <span class="nav-text">MQTT Client ID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Message-Broker"><span class="nav-number">15.</span> <span class="nav-text">Message Broker</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -242,7 +239,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sylvesterdzimiri.com/2021/08/01/aws-trusted-advisor/">
+    <link itemprop="mainEntityOfPage" href="https://sylvesterdzimiri.com/2021/10/05/aws-iot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/sylvester.png">
@@ -255,7 +252,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          AWS Trusted Advisor
+          AWS IOT
         </h1>
 
         <div class="post-meta-container">
@@ -265,16 +262,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-08-01 00:26:02" itemprop="dateCreated datePublished" datetime="2021-08-01T00:26:02-05:00">2021-08-01</time>
+      <time title="Created: 2021-10-05 09:13:25 / Modified: 09:24:04" itemprop="dateCreated datePublished" datetime="2021-10-05T09:13:25-05:00">2021-10-05</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-02 15:59:39" itemprop="dateModified" datetime="2021-08-02T15:59:39-05:00">2021-08-02</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -300,14 +291,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>1k</span>
+      <span>4.8k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>4 mins.</span>
     </span>
 </div>
 
@@ -318,14 +309,45 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>AWS Trusted Advisor is an online tool that provides you real time guidance to help you provision your resources following AWS best practices. Trusted Advisor checks help optimize your AWS infrastructure, increase security and performance, reduce your overall costs, and monitor service limits. Whether establishing new workflows, developing applications, or as part of ongoing improvement, take advantage of the recommendations provided by Trusted Advisor on a regular basis to help keep your solutions provisioned optimally.</p>
+        <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>An application programming interface (API) defines how software components will interact with one another.</p>
+<h2 id="SDK"><a href="#SDK" class="headerlink" title="SDK"></a>SDK</h2><p>A software development kit (SDK) is a collection of resources used to help developers extend and integrate a third-party software with their own. It usually leverages the APIs that are provided by the third-party software.</p>
 <span id="more"></span>
 
-<div class="note "><p><a target="_blank" rel="noopener" href="https://aws.amazon.com/premiumsupport/technology/trusted-advisor/">AWS Trusted Advisor</a><br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/aws-support/index.html">AWS Support Documentation</a><br><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html">AWS Trusted Advisor Documentation</a></p>
-</div>
+<h2 id="AWS-CLI"><a href="#AWS-CLI" class="headerlink" title="AWS CLI"></a>AWS CLI</h2><p>The AWS Command Line Interface (CLI) is a python-based command line tool used to easily invoke AWS APIs. With the CLI you can describe, create, modify and remove AWS resources.</p>
+<h2 id="Signature-Version-4"><a href="#Signature-Version-4" class="headerlink" title="Signature Version 4"></a>Signature Version 4</h2><p>Signature Version 4 is the process to add authentication information to AWS requests. For security, most requests to AWS must be signed with an access key, which consists of an access key ID and secret access key.</p>
+<h2 id="Device-Gateway"><a href="#Device-Gateway" class="headerlink" title="Device Gateway"></a>Device Gateway</h2><p>The AWS IoT Device Gateway enables devices to securely and efficiently communicate with AWS IoT. Select here to learn more about the protocols supported by AWS IoT. Things can communicate with each other via the Device Gateway, even if they are using different protocols.</p>
+<h2 id="Rules-Engine"><a href="#Rules-Engine" class="headerlink" title="Rules Engine"></a>Rules Engine</h2><p>The rules engine evaluates inbound messages published into AWS IoT, transforms and delivers them to another thing or a cloud based on business rules you define. The rules engine can also route messages to cloud endpoints such as AWS Lambda functions, or a DynamoDB table.</p>
+<h2 id="AWS-IoT-Rules"><a href="#AWS-IoT-Rules" class="headerlink" title="AWS IoT Rules"></a>AWS IoT Rules</h2><p>Rules give your devices the ability to interact with AWS services. Rules are analyzed and actions are performed based on the MQTT topic stream. You can use rules to support tasks like these:</p>
+<ul>
+<li>Augment or filter data received from a device.</li>
+<li>Write data received from a device to an Amazon DynamoDB database.</li>
+<li>Save a file to Amazon S3.</li>
+<li>Send a push notification to all users using Amazon SNS.</li>
+<li>Publish data to an Amazon SQS queue.</li>
+<li>Invoke a Lambda function to extract data.</li>
+<li>Process messages from a large number of devices using Amazon Kinesis.</li>
+<li>Send data to the Amazon Elasticsearch Service.</li>
+<li>Capture a CloudWatch metric.</li>
+<li>Change a CloudWatch alarm.</li>
+<li>Send the data from an MQTT message to Amazon Machine Learning to make predictions based on an Amazon ML model.</li>
+</ul>
+<p>Before AWS IoT can perform these actions, you must grant it permission to access your AWS resources on your behalf.</p>
+<h2 id="X-509-Certificates"><a href="#X-509-Certificates" class="headerlink" title="X.509 Certificates"></a>X.509 Certificates</h2><p>X.509 certificates are digital certificates that use the X.509 public key infrastructure standard to associate a public key with an identity contained in a certificate. X.509 certificates are issued by a trusted entity called a certificate authority (CA). The CA maintains one or more special certificates called CA certificates that it uses to issue X.509 certificates. Only the certificate authority has access to CA certificates.</p>
+<p>To use AWS IoT certificates, clients must support all of the following in their TLS implementation:</p>
+<ul>
+<li>TLS 1.2</li>
+<li>SHA-256 RSA certificate signature validation</li>
+<li>One of the cipher suites from the TLS cipher suite support section</li>
+</ul>
+<h2 id="AWS-IoT-Policy"><a href="#AWS-IoT-Policy" class="headerlink" title="AWS IoT Policy"></a>AWS IoT Policy</h2><p>Policies give permissions to AWS IoT clients regardless of the authentication mechanism they use to connect to AWS IoT. To control which resources a device can access, attach one or more AWS IoT policies to the certificate associated with the device. An example policy:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;Version&quot;</span>: <span class="string">&quot;2012-10-17&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;Statement&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;Effect&quot;</span>: <span class="string">&quot;Allow&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;Action&quot;</span>: [<span class="string">&quot;iot:Publish&quot;</span>],</span><br><span class="line">      <span class="attr">&quot;Resource&quot;</span>: [<span class="string">&quot;arn:aws:iot:us-east-1:123456789012:topic/house&quot;</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;Effect&quot;</span>: <span class="string">&quot;Allow&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;Action&quot;</span>: [<span class="string">&quot;iot:Connect&quot;</span>],</span><br><span class="line">      <span class="attr">&quot;Resource&quot;</span>: [<span class="string">&quot;*&quot;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
 
-<p>AWS Basic Support and AWS Developer Support customers get access to 6 security checks (S3 Bucket Permissions, Security Groups - Specific Ports Unrestricted, IAM Use, MFA on Root Account, EBS Public Snapshots, RDS Public Snapshots) and 50 service limit checks. AWS Business Support and AWS Enterprise Support customers get access to all 115 Trusted Advisor checks (14 cost optimization, 17 security, 24 fault tolerance, 10 performance, and 50 service limits) and recommendations. For a complete list of checks and descriptions, explore Trusted Advisor Best Practices.</p>
-<p><img src="/images/aws-trusted-advisor.png" alt="(Can write a description about the picture)"><br><img src="/images/aws-trusted.png" alt="(Can write a description about the picture)"></p>
+<h2 id="Thing-Device-Shadow"><a href="#Thing-Device-Shadow" class="headerlink" title="Thing (Device) Shadow"></a>Thing (Device) Shadow</h2><p>A thing shadow (sometimes referred to as a device shadow) is a JSON document that is used to store and retrieve current state information for a thing (device, app, and so on). The Thing Shadows service maintains a thing shadow for each thing you connect to AWS IoT. You can use thing shadows to get and set the state of a thing over MQTT or HTTP, regardless of whether the thing is connected to the Internet. Each thing shadow is uniquely identified by its name.</p>
+<h2 id="Thing-Device-Registry"><a href="#Thing-Device-Registry" class="headerlink" title="Thing (Device) Registry"></a>Thing (Device) Registry</h2><p>The Thing Registry allows you to register your units (both real devices and virtual applications) with the service and associate up to three custom attributes with each unit. Authentication certificates used by these things can also be associated to the thing, to allow for easy viewing and diagnosis of customers IoT fleets.</p>
+<h2 id="MQTT"><a href="#MQTT" class="headerlink" title="MQTT"></a>MQTT</h2><p>A machine-to-machine/IoT protocol to connect devices to each other and to the cloud. It is a very light-weight protocol designed for resource-limited devices that follows a publish/subscribe messaging format.</p>
+<h2 id="WebSockets"><a href="#WebSockets" class="headerlink" title="WebSockets"></a>WebSockets</h2><p>A TCP protocol that has been designed for web applications running on web servers or in the browser. While WebSockets leverage HTTP protocol to perform the initial handshake, it is an independent protocol that is meant to keep a connection open for long periods of time while data streams across the connection.</p>
+<h2 id="MQTT-Client-ID"><a href="#MQTT-Client-ID" class="headerlink" title="MQTT Client ID"></a>MQTT Client ID</h2><p>The message broker uses the client ID to identify each client. The client ID is passed in from the client to the message broker as part of the MQTT payload. Two clients with the same client ID are not allowed to be connected concurrently to the message broker. When a client connects to the message broker using a client ID that another client is using, a CONNACK message will be sent to both clients and the currently connected client will be disconnected.</p>
+<h2 id="Message-Broker"><a href="#Message-Broker" class="headerlink" title="Message Broker"></a>Message Broker</h2><p>The message broker supports the use of the MQTT protocol to publish and subscribe and the HTTPS protocol to publish. Both protocols are supported through IP version 4 and IP version 6. The message broker also supports MQTT over the WebSocket protocol.</p>
 
     </div>
 
@@ -343,11 +365,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2021/09/14/aws-database/" rel="prev" title="Introduction to Database">
+                  <i class="fa fa-chevron-left"></i> Introduction to Database
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/08/01/aws-elastic-beanstalk/" rel="next" title="AWS Elastic Beanstalk">
-                  AWS Elastic Beanstalk <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

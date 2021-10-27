@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="Sylvesters Blog">
 <meta property="og:description" content="AWS Accounts and OrganizationsAWS Organizations AWS Organizations helps you centrally manage and govern your environment as you grow and scale your AWS resources. AWS accounts are natural boundaries f">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sylvesterdzimiri.com/images/ou.png">
 <meta property="article:published_time" content="2021-09-08T03:38:14.000Z">
-<meta property="article:modified_time" content="2021-09-10T04:48:42.363Z">
+<meta property="article:modified_time" content="2021-09-26T19:38:40.900Z">
 <meta property="article:author" content="Sylvester Runesu Dzimiri">
 <meta property="article:tag" content="AWS">
 <meta property="article:tag" content="AWS SAA">
 <meta property="article:tag" content="AWS SAA PRO">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sylvesterdzimiri.com/images/ou.png">
 
 
 <link rel="canonical" href="https://sylvesterdzimiri.com/2021/09/07/aws-saa-pro/">
@@ -165,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -271,7 +273,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-09 23:48:42" itemprop="dateModified" datetime="2021-09-09T23:48:42-05:00">2021-09-09</time>
+        <time title="Modified: 2021-09-26 14:38:40" itemprop="dateModified" datetime="2021-09-26T14:38:40-05:00">2021-09-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -287,7 +289,7 @@
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/aws-certification/AWS-SAA-PRO/" itemprop="url" rel="index"><span itemprop="name">AWS SAA PRO</span></a>
+          <a href="/categories/aws-certification/aws-saa-pro/" itemprop="url" rel="index"><span itemprop="name">AWS SAA PRO</span></a>
         </span>
     </span>
 
@@ -298,14 +300,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>2.9k</span>
+      <span>4.4k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>3 mins.</span>
+      <span>4 mins.</span>
     </span>
 </div>
 
@@ -332,6 +334,12 @@
 <li>Organizations provides you with a single consolidated bill.</li>
 <li>In addition, you can view usage from resources across accounts and track costs using AWS Cost Explorer, and optimize your usage of compute resources using AWS Compute Optimizer.</li>
 </ul>
+<p>AWS Organizations offers policy-based management for multiple AWS accounts. With Organizations, you can create groups of accounts, automate account creation, and apply and manage policies for those groups. Organizations enables you to centrally manage policies across multiple accounts, without requiring custom scripts and manual processes. It allows you to create Service Control Policies (SCPs) that centrally control AWS service use across multiple AWS accounts.</p>
+<p>Remember that AWS Organizations <strong>does not</strong> replace associating IAM policies with users, groups, and roles within an AWS account. Hence, you still need to set up appropriate IAM policies for your root and member accounts.</p>
+<p><img src="/images/ou.png" alt="(Can write a description about the picture)"></p>
+<p>IAM policies let you allow or deny access to AWS services (such as Amazon S3), individual AWS resources (such as a specific S3 bucket), or individual API actions (such as s3:CreateBucket). An IAM policy can be applied only to IAM users, groups, or roles, and it can never restrict the root identity of the AWS account.</p>
+<p>By contrast, AWS Organizations lets you use service control policies (SCPs) to allow or deny access to particular AWS services for individual AWS accounts, or for groups of accounts within an organizational unit (OU). The specified actions from an attached SCP affect all IAM users, groups, and roles for an account, including the root account identity.</p>
+<p>When you apply an SCP to an OU or an individual AWS account, you choose to either enable (whitelist), or disable (blacklist) the specified AWS service. Access to any service that isn’t explicitly allowed by the SCPs associated with an account, its parent OUs, or the master account is denied to the AWS accounts or OUs associated with the SCP. When an SCP is applied to an OU, it is inherited by all of the AWS accounts in that OU.</p>
 <h2 id="IAM"><a href="#IAM" class="headerlink" title="IAM"></a>IAM</h2><p><strong>IAM Roles / Resource Based Policies</strong></p>
 <p>When you assume a role you take on the permissions assigned to the role (and relinquish the permissions assigned to your IAM user account). When using a resource-based policy the principal does not give up permissions assigned to their IAM user account. Users can be granted permission to switch roles within an AWS account or to a role created in another AWS account. Users are explicitly granted the permissions to assume the role. MFA protection can be added to enforce an extra factor when assuming the role. Can add an external ID to authenticate principals that attempt to assume a role.</p>
 <p>Example APIs for assuming roles:</p>
@@ -404,13 +412,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">129k</span>
+    <span title="Symbols count total">162k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:57</span>
+    <span title="Reading time total">2:27</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
